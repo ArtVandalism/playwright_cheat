@@ -1,7 +1,7 @@
+/* Общие стили для страницы */
 body {
     font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: #e0e0e0;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,40 +10,58 @@ body {
     height: 100vh;
 }
 
-.container {
+.chat-container {
     width: 80%;
-    max-width: 1200px;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
     padding: 20px;
-    background-color: #2e2e2e;
-    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    height: 80vh;
 }
 
-h1 {
-    text-align: center;
-    color: #cfcfcf;
+/* Стили для сообщений чата */
+.chat-message {
+    margin-bottom: 15px;
 }
 
-.function-block {
-    background-color: #333;
-    border: 1px solid #444;
-    border-radius: 8px;
-    margin: 10px 0;
-    padding: 15px;
+.chat-message p {
+    font-weight: bold;
+    margin: 0;
 }
 
-.function-block h2 {
-    margin-top: 0;
-    color: #dcdcdc;
-}
-
-.function-block pre {
-    background-color: #1e1e1e;
+.chat-message.bot {
+    background-color: #e1f5fe;
     padding: 10px;
-    border-radius: 4px;
-    overflow-x: auto;
-    white-space: pre-wrap;
+    border-radius: 10px;
+    position: relative;
 }
 
-.function-block code {
-    color: #f8f8f2;
+.chat-message.bot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #e1f5fe;
+    border-bottom: 15px solid transparent;
+    transform: translateY(-50%);
+}
+
+/* Стили для кода */
+pre {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 0;
+}
+
+code {
+    font-family: monospace;
 }
