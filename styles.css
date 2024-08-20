@@ -1,5 +1,5 @@
 /* Общие стили для страницы */
-body {
+html, body {
     font-family: Andale Mono, monospace;
     background-color: #131312;
     color: #ae2c11;
@@ -9,8 +9,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to bottom,#8f3acb,#131312);
+    background: linear-gradient(to top,#282828,#131312);
     text-align: center;
+    overflow: auto;
 }
 
 ::selection {
