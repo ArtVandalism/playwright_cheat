@@ -22,7 +22,8 @@ html, body {
     max-wight: 1200px;
     border-radius: 10px;
     background-color: #131312;
-    padding: 15px;
+    margin: 0;
+    padding: 0;
     overflow: auto;
     height: 100%;
     box-sizing: border-box;
