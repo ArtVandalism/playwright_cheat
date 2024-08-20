@@ -1,28 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const codes = document.querySelectorAll('pre code');
-    const tooltip = document.getElementById('tooltip');
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.copy-btn');
 
-    codes.forEach(code => {
-        code.addEventListener('click', function(event) {
-            const text = event.target.textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                tooltip.textContent = 'Copied!';
-                tooltip.style.left = `${event.pageX}px`;
-                tooltip.style.top = `${event.pageY + 20}px`;
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            const codeElement = document.getElementById(targetId);
+            const codeText = codeElement.innerText;
+
+            navigator.clipboard.writeText(codeText).then(() => {
+                // Show tooltip
+                const tooltip = document.getElementById(`tooltip-${targetId}`);
                 tooltip.style.display = 'block';
 
+                // Hide tooltip after 1.5 seconds
                 setTimeout(() => {
                     tooltip.style.display = 'none';
-                }, 1000);
+                }, 1500);
             }).catch(err => {
-                tooltip.textContent = 'Failed to copy!';
-                tooltip.style.left = `${event.pageX}px`;
-                tooltip.style.top = `${event.pageY + 20}px`;
-                tooltip.style.display = 'block';
-
-                setTimeout(() => {
-                    tooltip.style.display = 'none';
-                }, 1000);
+                console.error('Failed to copy: ', err);
             });
         });
     });
