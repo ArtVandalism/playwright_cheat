@@ -1,8 +1,8 @@
 /* Общие стили для страницы */
 body {
     font-family: Consolas, lucida console;
-    background-color: #121212;
-    color: #FCDEF0;
+    background-color: #88BF73;
+    color: #88BF73;
     margin: 0;
     padding: 0;
     display: grid;
@@ -14,8 +14,8 @@ body {
 }
 
 ::selection {
-  background-color: #FF97BB;
-  color: #f1f1f1;
+  background-color: #88BF73;
+  color: #88BF73;
 } 
 
 .fullheight { height: 100vh; } 
@@ -23,7 +23,7 @@ body {
 .chat-container {
     width: 80%;
     max-width: 1000px;
-    border: 1px solid #333;
+    border: 1px solid #88BF73;
     border-radius: 15px;
     background-color: #1e1e1e;
     padding: 25px;
@@ -42,11 +42,11 @@ body {
 .chat-message p {
     font-weight: bold;
     margin: 0;
-    color: #8759B1;
+    color: #88BF73;
 }
 
 .chat-message.bot {
-    background-color: #333;
+    background-color: #88BF73;
     padding: 10px;
     border-radius: 10px;
     position: relative;
@@ -78,13 +78,13 @@ pre {
 
 code {
     font-family: monospace;
-    color: #EDDE78;
+    color: #14FFEC;
     text-align: justify;
 }
 
 /* Стили для комментариев */
 .comment {
     font-weight: bold;
-    color: #88BF73;
+    color: #0D7377;
     text-align: justify;
 }
