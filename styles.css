@@ -11,7 +11,7 @@ html, body {
     height: 100vh;
     background: linear-gradient(to top,#282828,#131312);
     text-align: center;
-    position: fixed;
+    position: relative;
 }
 
 ::selection {
