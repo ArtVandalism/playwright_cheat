@@ -1,6 +1,6 @@
 /* Общие стили для страницы */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Consolas, lucida console;
     background-color: #121212;
     color: #e0e0e0;
     margin: 0;
@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to right,#000,#0575e6);
+    background: linear-gradient(to right,#000,#121212);
     text-align: center;
 }
 
