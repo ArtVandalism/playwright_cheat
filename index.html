@@ -28,7 +28,8 @@
 
         <div class="chat-message bot">
             <p><strong>Работа с элементами</strong></p>
-            <pre><code><span class="comment">async def click_element(page: Page, selector: str):</span>
+            <pre><code>
+<span class="comment">async def click_element(page: Page, selector: str):</span>
     await page.click(selector) #Клик по элементу, определённому селектором.
 
 <span class="comment">async def type_text(page: Page, selector: str, text: str):</span>
@@ -56,7 +57,8 @@
 
         <div class="chat-message bot">
             <p><strong>Клавиатура и мышь</strong></p>
-            <pre><code><span class="comment">async def type_text_in_input(page: Page, selector: str, text: str):</span>
+            <pre><code>
+<span class="comment">async def type_text_in_input(page: Page, selector: str, text: str):</span>
     await page.type(selector, text)    #Ввести текст в поле ввода.
 
 <span class="comment">async def press_key_on_keyboard(page: Page, key: str):</span>
@@ -73,14 +75,16 @@
 
         <div class="chat-message bot">
             <p><strong>Выполнение (eval) Javascript-кода</strong></p>
-            <pre><code><span class="comment">async def evaluate_js(page: Page, js_code: str):</span>
+            <pre><code>
+<span class="comment">async def evaluate_js(page: Page, js_code: str):</span>
     return await page.evaluate(js_code)    #Выполнить JavaScript-код в контексте страницы.
             </code></pre>
         </div>
 
         <div class="chat-message bot">
             <p><strong>Фреймы</strong></p>
-            <pre><code><span class="comment">async def get_frame_by_name(page: Page, name: str):</span>
+            <pre><code>
+<span class="comment">async def get_frame_by_name(page: Page, name: str):</span>
     return await page.frame(name=name)    #Получить фрейм по имени.
 
 <span class="comment">async def get_frame_by_index(page: Page, index: int):</span>
