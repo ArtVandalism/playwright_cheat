@@ -3,103 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playwright Code Snippets</title>
+    <title>Playwright Code Examples</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Playwright Code Snippets</h1>
-
         <section>
             <h2>Навигация</h2>
-            <pre><code class="language-python">
-# Переход по URL
-await page.goto('https://example.com')
-
-# Перезагрузка страницы
-await page.reload()
-
-# Вперед/назад по истории
-await page.go_back()
-await page.go_forward()
-            </code></pre>
+            <pre>
+                <code id="nav-code">
+                    # Переход по URL
+                    await page.goto('https://example.com')
+                    
+                    # Перезагрузка страницы
+                    await page.reload()
+                    
+                    # Вперед/назад по истории
+                    await page.go_back()
+                    await page.go_forward()
+                </code>
+            </pre>
         </section>
 
         <section>
             <h2>Работа с элементами</h2>
-            <pre><code class="language-python">
-# Кликнуть элемент
-await page.click('button')
-
-# Ввести текст в поле ввода
-await page.type('input[name="username"]', 'your_username')
-
-# Нажать клавишу Enter
-await page.press('input[name="password"]', 'Enter')
-
-# Получить текстовое содержимое элемента
-text = await page.text_content('h1')
-
-# Выбор опции в раскрывающемся списке
-await page.select_option('select', label='Option 1')
-
-# Ожидание появления или видимости элементов
-await page.wait_for_selector('div#my-element', state='visible')
-
-# Проверка, существует ли элемент
-assert await page.locator("button").is_visible()
-
-# Проверка заголовка страницы
-assert await page.title() == "Expected Title"
-            </code></pre>
-        </section>
-
-        <section>
-            <h2>Алерты и диалоговые окна</h2>
-            <pre><code class="language-python">
-# Обработка JS-алерта
-page.on('dialog', lambda dialog: await dialog.accept())
-page.on('dialog', lambda dialog: await dialog.dismiss())
-            </code></pre>
+            <pre>
+                <code id="elem-code">
+                    # Кликнуть элемент
+                    await page.click('button')
+                    
+                    # Ввести текст в поле ввода
+                    await page.type('input[name="username"]', 'your_username')
+                    
+                    # Нажать клавишу Enter
+                    await page.press('input[name="password"]', 'Enter')
+                    
+                    # Получить текстовое содержимое элемента
+                    text = await page.text_content('h1')
+                    
+                    # Выбор опции в раскрывающемся списке
+                    await page.select_option('select', label='Option 1')
+                    
+                    # Ожидание появления или видимости элементов
+                    await page.wait_for_selector('div#my-element', state='visible')
+                    
+                    # Проверка, существует ли элемент
+                    assert await page.locator("button").is_visible()
+                    
+                    # Проверка заголовка страницы
+                    assert await page.title() == "Expected Title"
+                </code>
+            </pre>
         </section>
 
         <section>
             <h2>Клавиатура и мышь</h2>
-            <pre><code class="language-python">
-# Ввести текст
-await page.type('input', 'Hello, Playwright!')
-
-# Нажать и отпустить клавишу
-await page.keyboard.press('Enter')
-await page.keyboard.release('Shift')
-
-# Передвинуть мышь и кликнуть
-await page.mouse.move(100, 100)
-await page.mouse.click()
-            </code></pre>
+            <pre>
+                <code id="mouse-code">
+                    # Ввести текст
+                    await page.type('input', 'Hello, Playwright!')
+                    
+                    # Нажать и отпустить клавишу
+                    await page.keyboard.press('Enter')
+                    await page.keyboard.release('Shift')
+                    
+                    # Передвинуть мышь и кликнуть
+                    await page.mouse.move(100, 100)
+                    await page.mouse.click()
+                </code>
+            </pre>
         </section>
 
         <section>
             <h2>Выполнение (eval) Javascript-кода</h2>
-            <pre><code class="language-python">
-# Выполнить JavaScript-код в контексте страницы
-result = await page.evaluate('1 + 2')
-            </code></pre>
+            <pre>
+                <code id="eval-code">
+                    # Выполнить JavaScript-код в контексте страницы
+                    result = await page.evaluate('1 + 2')
+                </code>
+            </pre>
         </section>
 
         <section>
             <h2>Фреймы</h2>
-            <pre><code class="language-python">
-# Переход к фрейму по имени, id или индексу
-frame = await page.frame(name='frameName')
-frame = await page.frame(index=0)
-
-# Выполнить код в контексте фрейма
-frame = await page.frame(index=0)
-await frame.evaluate('console.log("Hello from frame!")')
-            </code></pre>
+            <pre>
+                <code id="frame-code">
+                    # Переход к фрейму по имени, id или индексу
+                    frame = await page.frame(name='frameName')
+                    frame = await page.frame(index=0)
+                    
+                    # Выполнить код в контексте фрейма
+                    frame = await page.frame(index=0)
+                    await frame.evaluate('console.log("Hello from frame!")')
+                </code>
+            </pre>
         </section>
     </div>
-    <script src="script.js"></script>
+    <div id="tooltip" class="tooltip"></div>
+    <script src="scripts.js"></script>
 </body>
 </html>
