@@ -26,16 +26,6 @@ html, body {
     background: transparent; /* Скрывает фон полос прокрутки */
 }
 
-/* Для Firefox */
-.container {
-    scrollbar-width: none; /* Убирает полосы прокрутки */
-}
-
-/* Для старых браузеров, например, Internet Explorer */
-.container {
-    -ms-overflow-style: none; /* Убирает полосы прокрутки */
-}
-
 ::selection {
   background-color: #21323d;
   color: #ae2c11;
