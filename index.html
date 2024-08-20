@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwright Async Functions Cheatsheet</title>
+    <style>
+        :root {
+            --background-light: #f4f4f4;
+            --text-light: #333;
+            --background-dark: #1e1e1e;
+            --text-dark: #ff79c6;
+            --primary-color: #0056b3;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-light);
+            color: var(--text-light);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+        }
+
+        pre {
+            background-color: #333;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #ff79c6;
+        }
+
+        .theme-toggle {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .dark-theme {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        .dark-theme h2 {
+            color: var(--text-dark);
+        }
+
+        .dark-theme pre {
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+    <h1>Playwright Async Functions Cheatsheet</h1>
+
+    <div class="theme-toggle" onclick="toggleTheme()">Toggle Dark Theme</div>
+
+    <h2>Навигация</h2>
+    <pre><code>async def navigate_to_url(page, url):
+    response = await page.goto(url)
+    return response.status
+
+async def reload_page(page):
+    response = await page.reload()
+    return response.status
+
+async def navigate_back(page):
+    response = await page.go_back()
+    return response.status if response else 'No response'
+
+async def navigate_forward(page):
+    response = await page.go_forward()
+    return response.status if response else 'No response'
+</code></pre>
+
+    <h2>Работа с элементами</h2>
+    <pre><code>async def click_element(page, selector):
+    await page.click(selector)
+
+async def type_text(page, selector, text):
+    await page.type(selector, text)
+
+async def press_key(page, selector, key):
+    await page.press(selector, key)
+
+async def get_text_content(page, selector):
+    text = await page.text_content(selector)
+    return text
+
+async def select_option(page, selector, label):
+    await page.select_option(selector, label=label)
+
+async def wait_for_element(page, selector, state='visible'):
+    await page.wait_for_selector(selector, state=state)
+
+async def is_element_visible(page, selector):
+    return await page.locator(selector).is_visible()
+
+async def get_page_title(page):
+    return await page.title()
+</code></pre>
+
+    <h2>Алерты и диалоговые окна</h2>
+    <pre><code>async def accept_dialog(dialog):
+    await dialog.accept()
+
+async def dismiss_dialog(dialog):
+    await dialog.dismiss()
+
+async def setup_dialog_handlers(page):
+    page.on('dialog', accept_dialog)
+    page.on('dialog', dismiss_dialog)
+</code></pre>
+
+    <h2>Клавиатура и мышь</h2>
+    <pre><code>async def type_input(page, selector, text):
+    await page.type(selector, text)
+
+async def press_keyboard_key(page, key):
+    await page.keyboard.press(key)
+
+async def release_keyboard_key(page, key):
+    await page.keyboard.release(key)
+
+async def move_and_click_mouse(page, x, y):
+    await page.mouse.move(x, y)
+    await page.mouse.click()
+</code></pre>
+
+    <h2>Выполнение (eval) Javascript-кода</h2>
+    <pre><code>async def execute_js(page, script):
+    return await page.evaluate(script)
+</code></pre>
+
+    <h2>Фреймы</h2>
+    <pre><code>async def get_frame_by_name(page, name):
+    return await page.frame(name=name)
+
+async def get_frame_by_index(page, index):
+    return await page.frame(index=index)
+
+async def execute_js_in_frame(frame, script):
+    return await frame.evaluate(script)
+</code></pre>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
+</body>
+</html>
