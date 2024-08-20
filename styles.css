@@ -22,6 +22,7 @@ h1 {
 }
 
 pre.code-block {
+    text-align: center;
     position: relative;
     background-color: #1e1e1e;
     border-radius: 5px;
@@ -32,6 +33,7 @@ pre.code-block {
 }
 
 pre.code-block::before {
+    text-align: center;
     content: ' ';
     position: absolute;
     top: 0;
