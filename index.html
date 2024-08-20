@@ -1,202 +1,105 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playwright Async Functions Cheatsheet</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #1e1e1e; /* Темный фон */
-            color: #def5c6; /* Светлый текст */
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #569cd6; /* Синий для заголовка */
-        }
-        h2 {
-            text-align: center;
-            color: #569cd6; /* Синий для заголовков */
-        }
-        pre {
-            text-align: center;
-            background-color: #282c34; /* Темный фон для кода */
-            color: #dcdcdc; /* Светлый текст для кода */
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-            position: relative;
-            margin: 10px 0;
-        }
-        code {
-            text-align: center;
-            color: #c586c0; /* Лиловый для ключевых слов */
-        }
-        .comment {
-            color: #6a9955; /* Зеленый для комментариев */
-        }
-        .string {
-            color: #ce9178; /* Оранжевый для строк */
-        }
-        .function {
-            text-align: center;
-            color: #dcdcaa; /* Желтый для функций */
-        }
-        .keyword {
-            text-align: center;
-            color: #569cd6; /* Синий для ключевых слов */
-        }
-        .copy-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #44475a;
-            color: #dcdcdc;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 12px;
-            display: none;
-        }
-        .copy-button:hover {
-            background-color: #6272a4;
-        }
-        pre:hover .copy-button {
-            display: inline;
-        }
-        .comment { color: #6a9955; }
-        .string { color: #ce9178; }
-        .function { color: #dcdcaa; }
-        .keyword { color: #569cd6; }
-    </style>
+    <title>Playwright Code Snippets</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Playwright Async Functions Cheatsheet</h1>
+    <div class="container">
+        <h1>Playwright Code Snippets</h1>
 
-    <h2>Навигация</h2>
-    <pre><button class="copy-button" onclick="copyToClipboard('navigate_to_url')">Copy</button><code id="navigate_to_url"><span class="keyword">async</span> <span class="keyword">def</span> navigate_to_url(page, url):
-    response = <span class="keyword">await</span> page.goto(url)
-    <span class="keyword">return</span> response.status
-    <!-- Переход по URL и получение статуса ответа -->
-</code></pre>
+        <section>
+            <h2>Навигация</h2>
+            <pre><code class="language-python">
+# Переход по URL
+await page.goto('https://example.com')
 
-    <pre><button class="copy-button" onclick="copyToClipboard('reload_page')">Copy</button><code id="reload_page"><span class="keyword">async</span> <span class="keyword">def</span> reload_page(page):
-    response = <span class="keyword">await</span> page.reload()
-    <span class="keyword">return</span> response.status
-    <!-- Перезагрузка страницы и получение статуса ответа -->
-</code></pre>
+# Перезагрузка страницы
+await page.reload()
 
-    <pre><button class="copy-button" onclick="copyToClipboard('navigate_back')">Copy</button><code id="navigate_back"><span class="keyword">async</span> <span class="keyword">def</span> navigate_back(page):
-    response = <span class="keyword">await</span> page.go_back()
-    <span class="keyword">return</span> response.status <span class="keyword">if</span> response <span class="keyword">else</span> 'No response'
-    <!-- Переход назад по истории и получение статуса ответа -->
-</code></pre>
+# Вперед/назад по истории
+await page.go_back()
+await page.go_forward()
+            </code></pre>
+        </section>
 
-    <pre><button class="copy-button" onclick="copyToClipboard('navigate_forward')">Copy</button><code id="navigate_forward"><span class="keyword">async</span> <span class="keyword">def</span> navigate_forward(page):
-    response = <span class="keyword">await</span> page.go_forward()
-    <span class="keyword">return</span> response.status <span class="keyword">if</span> response <span class="keyword">else</span> 'No response'
-    <!-- Переход вперед по истории и получение статуса ответа -->
-</code></pre>
+        <section>
+            <h2>Работа с элементами</h2>
+            <pre><code class="language-python">
+# Кликнуть элемент
+await page.click('button')
 
-    <h2>Работа с элементами</h2>
-    <pre><button class="copy-button" onclick="copyToClipboard('click_element')">Copy</button><code id="click_element"><span class="keyword">async</span> <span class="keyword">def</span> click_element(page, selector):
-    <span class="keyword">await</span> page.click(selector)
-    <!-- Клик по элементу -->
-</code></pre>
+# Ввести текст в поле ввода
+await page.type('input[name="username"]', 'your_username')
 
-    <pre><button class="copy-button" onclick="copyToClipboard('type_text')">Copy</button><code id="type_text"><span class="keyword">async</span> <span class="keyword">def</span> type_text(page, selector, text):
-    <span class="keyword">await</span> page.type(selector, text)
-    <!-- Ввод текста в поле -->
-</code></pre>
+# Нажать клавишу Enter
+await page.press('input[name="password"]', 'Enter')
 
-    <pre><button class="copy-button" onclick="copyToClipboard('press_key')">Copy</button><code id="press_key"><span class="keyword">async</span> <span class="keyword">def</span> press_key(page, selector, key):
-    <span class="keyword">await</span> page.press(selector, key)
-    <!-- Нажатие клавиши -->
-</code></pre>
+# Получить текстовое содержимое элемента
+text = await page.text_content('h1')
 
-    <pre><button class="copy-button" onclick="copyToClipboard('get_text_content')">Copy</button><code id="get_text_content"><span class="keyword">async</span> <span class="keyword">def</span> get_text_content(page, selector):
-    text = <span class="keyword">await</span> page.text_content(selector)
-    <span class="keyword">return</span> text
-    <!-- Получение текстового содержимого элемента -->
-</code></pre>
+# Выбор опции в раскрывающемся списке
+await page.select_option('select', label='Option 1')
 
-    <pre><button class="copy-button" onclick="copyToClipboard('select_option')">Copy</button><code id="select_option"><span class="keyword">async</span> <span class="keyword">def</span> select_option(page, selector, label):
-    <span class="keyword">await</span> page.select_option(selector, label=label)
-    <!-- Выбор опции в раскрывающемся списке -->
-</code></pre>
+# Ожидание появления или видимости элементов
+await page.wait_for_selector('div#my-element', state='visible')
 
-    <pre><button class="copy-button" onclick="copyToClipboard('wait_for_element')">Copy</button><code id="wait_for_element"><span class="keyword">async</span> <span class="keyword">def</span> wait_for_element(page, selector, state='visible'):
-    <span class="keyword">await</span> page.wait_for_selector(selector, state=state)
-    <!-- Ожидание появления элемента -->
-</code></pre>
+# Проверка, существует ли элемент
+assert await page.locator("button").is_visible()
 
-    <pre><button class="copy-button" onclick="copyToClipboard('is_element_visible')">Copy</button><code id="is_element_visible"><span class="keyword">async</span> <span class="keyword">def</span> is_element_visible(page, selector):
-    <span class="keyword">return</span> <span class="keyword">await</span> page.locator(selector).is_visible()
-    <!-- Проверка видимости элемента -->
-</code></pre>
+# Проверка заголовка страницы
+assert await page.title() == "Expected Title"
+            </code></pre>
+        </section>
 
-    <pre><button class="copy-button" onclick="copyToClipboard('get_page_title')">Copy</button><code id="get_page_title"><span class="keyword">async</span> <span class="keyword">def</span> get_page_title(page):
-    <span class="keyword">return</span> <span class="keyword">await</span> page.title()
-    <!-- Получение заголовка страницы -->
-</code></pre>
+        <section>
+            <h2>Алерты и диалоговые окна</h2>
+            <pre><code class="language-python">
+# Обработка JS-алерта
+page.on('dialog', lambda dialog: await dialog.accept())
+page.on('dialog', lambda dialog: await dialog.dismiss())
+            </code></pre>
+        </section>
 
-    <h2>Алерты и диалоговые окна</h2>
-    <pre><button class="copy-button" onclick="copyToClipboard('accept_dialog')">Copy</button><code id="accept_dialog"><span class="keyword">async</span> <span class="keyword">def</span> accept_dialog(dialog):
-    <span class="keyword">await</span> dialog.accept()
-    <!-- Обработка JS-алерта (принятие) -->
-</code></pre>
+        <section>
+            <h2>Клавиатура и мышь</h2>
+            <pre><code class="language-python">
+# Ввести текст
+await page.type('input', 'Hello, Playwright!')
 
-    <pre><button class="copy-button" onclick="copyToClipboard('dismiss_dialog')">Copy</button><code id="dismiss_dialog"><span class="keyword">async</span> <span class="keyword">def</span> dismiss_dialog(dialog):
-    <span class="keyword">await</span> dialog.dismiss()
-    <!-- Обработка JS-алерта (отклонение) -->
-</code></pre>
+# Нажать и отпустить клавишу
+await page.keyboard.press('Enter')
+await page.keyboard.release('Shift')
 
-    <pre><button class=“copy-button” onclick=“copyToClipboard(‘setup_dialog_handlers’)”>Copyasync def setup_dialog_handlers(page):
-page.on(‘dialog’, accept_dialog)
-page.on(‘dialog’, dismiss_dialog)
-        <h2>Клавиатура и мышь</h2>
-<pre><button class="copy-button" onclick="copyToClipboard('type_input')">Copy</button><code id="type_input"><span class="keyword">async</span> <span class="keyword">def</span> type_input(page, selector, text):
-<span class="keyword">await</span> page.type(selector, text)
-<!-- Ввод текста с клавиатуры -->
-    <pre><button class="copy-button" onclick="copyToClipboard('press_keyboard_key')">Copy</button><code id="press_keyboard_key"><span class="keyword">async</span> <span class="keyword">def</span> press_keyboard_key(page, key):
-<span class="keyword">await</span> page.keyboard.press(key)
-<!-- Нажатие клавиши на клавиатуре -->
-        <pre><button class="copy-button" onclick="copyToClipboard('release_keyboard_key')">Copy</button><code id="release_keyboard_key"><span class="keyword">async</span> <span class="keyword">def</span> release_keyboard_key(page, key):
-<span class="keyword">await</span> page.keyboard.release(key)
-<!-- Отпускание клавиши на клавиатуре -->
-            <pre><button class="copy-button" onclick="copyToClipboard('move_and_click_mouse')">Copy</button><code id="move_and_click_mouse"><span class="keyword">async</span> <span class="keyword">def</span> move_and_click_mouse(page, x, y):
-<span class="keyword">await</span> page.mouse.move(x, y)
-<span class="keyword">await</span> page.mouse.click()
-<!-- Перемещение мыши и клик -->
-                <h2>Выполнение (eval) Javascript-кода</h2>
-<pre><button class="copy-button" onclick="copyToClipboard('execute_js')">Copy</button><code id="execute_js"><span class="keyword">async</span> <span class="keyword">def</span> execute_js(page, script):
-<span class="keyword">return</span> <span class="keyword">await</span> page.evaluate(script)
-<!-- Выполнение JavaScript-кода в контексте страницы -->
-    <h2>Фреймы</h2>
-<pre><button class="copy-button" onclick="copyToClipboard('get_frame_by_name')">Copy</button><code id="get_frame_by_name"><span class="keyword">async</span> <span class="keyword">def</span> get_frame_by_name(page, name):
-<span class="keyword">return</span> <span class="keyword">await</span> page.frame(name=name)
-<!-- Переход к фрейму по имени -->
-    <pre><button class="copy-button" onclick="copyToClipboard('get_frame_by_index')">Copy</button><code id="get_frame_by_index"><span class="keyword">async</span> <span class="keyword">def</span> get_frame_by_index(page, index):
-<span class="keyword">return</span> <span class="keyword">await</span> page.frame(index=index)
-<!-- Переход к фрейму по индексу -->
-        <pre><button class="copy-button" onclick="copyToClipboard('execute_js_in_frame')">Copy</button><code id="execute_js_in_frame"><span class="keyword">async</span> <span class="keyword">def</span> execute_js_in_frame(frame, script):
-<span class="keyword">return</span> <span class="keyword">await</span> frame.evaluate(script)
-<!-- Выполнение JavaScript-кода в контексте фрейма -->
-            <script>
-    function copyToClipboard(id) {
-        const code = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(code).then(() => {
-            alert('Code copied to clipboard');
-        }).catch(err => {
-            console.error('Failed to copy text: ', err);
-        });
-    }
-</script>
+# Передвинуть мышь и кликнуть
+await page.mouse.move(100, 100)
+await page.mouse.click()
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Выполнение (eval) Javascript-кода</h2>
+            <pre><code class="language-python">
+# Выполнить JavaScript-код в контексте страницы
+result = await page.evaluate('1 + 2')
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Фреймы</h2>
+            <pre><code class="language-python">
+# Переход к фрейму по имени, id или индексу
+frame = await page.frame(name='frameName')
+frame = await page.frame(index=0)
+
+# Выполнить код в контексте фрейма
+frame = await page.frame(index=0)
+await frame.evaluate('console.log("Hello from frame!")')
+            </code></pre>
+        </section>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
-```
