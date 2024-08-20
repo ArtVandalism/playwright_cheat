@@ -11,7 +11,29 @@ html, body {
     height: 100vh;
     background: linear-gradient(to top,#282828,#131312);
     text-align: center;
-    overflow: auto;
+    position: fixed;
+    overflow: hidden;
+}
+
+/* Для всех современных браузеров */
+.container {
+    overflow: auto; /* Включает прокрутку */
+}
+
+/* Для Webkit-браузеров */
+.container::-webkit-scrollbar {
+    width: 0; /* Убирает полосы прокрутки, но позволяет прокрутку */
+    background: transparent; /* Скрывает фон полос прокрутки */
+}
+
+/* Для Firefox */
+.container {
+    scrollbar-width: none; /* Убирает полосы прокрутки */
+}
+
+/* Для старых браузеров, например, Internet Explorer */
+.container {
+    -ms-overflow-style: none; /* Убирает полосы прокрутки */
 }
 
 ::selection {
