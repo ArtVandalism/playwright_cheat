@@ -10,62 +10,62 @@
     <div class="chat-container">
         <div class="chat-message bot">
             <p><strong>Навигация</strong></p>
-            <pre><code>from playwright.async_api import Page
+            <pre><code><span class="comment">from playwright.async_api import Page</span>
 
-async def navigate_to_url(page: Page, url: str):
+<span class="comment">async def navigate_to_url(page: Page, url: str):</span>
     await page.goto(url)
 
-async def reload_page(page: Page):
+<span class="comment">async def reload_page(page: Page):</span>
     await page.reload()
 
-async def go_back(page: Page):
+<span class="comment">async def go_back(page: Page):</span>
     await page.go_back()
 
-async def go_forward(page: Page):
+<span class="comment">async def go_forward(page: Page):</span>
     await page.go_forward()
             </code></pre>
         </div>
 
         <div class="chat-message bot">
             <p><strong>Работа с элементами</strong></p>
-            <pre><code>async def click_element(page: Page, selector: str):
+            <pre><code><span class="comment">async def click_element(page: Page, selector: str):</span>
     await page.click(selector)
 
-async def type_text(page: Page, selector: str, text: str):
+<span class="comment">async def type_text(page: Page, selector: str, text: str):</span>
     await page.type(selector, text)
 
-async def press_key(page: Page, selector: str, key: str):
+<span class="comment">async def press_key(page: Page, selector: str, key: str):</span>
     await page.press(selector, key)
 
-async def get_text_content(page: Page, selector: str) -> str:
+<span class="comment">async def get_text_content(page: Page, selector: str) -> str:</span>
     return await page.text_content(selector)
 
-async def select_option(page: Page, selector: str, label: str):
+<span class="comment">async def select_option(page: Page, selector: str, label: str):</span>
     await page.select_option(selector, label=label)
 
-async def wait_for_element(page: Page, selector: str, state: str):
+<span class="comment">async def wait_for_element(page: Page, selector: str, state: str):</span>
     await page.wait_for_selector(selector, state=state)
 
-async def check_element_visibility(page: Page, selector: str):
+<span class="comment">async def check_element_visibility(page: Page, selector: str):</span>
     assert await page.locator(selector).is_visible()
 
-async def check_page_title(page: Page, expected_title: str):
+<span class="comment">async def check_page_title(page: Page, expected_title: str):</span>
     assert await page.title() == expected_title
             </code></pre>
         </div>
 
         <div class="chat-message bot">
             <p><strong>Клавиатура и мышь</strong></p>
-            <pre><code>async def type_text_in_input(page: Page, selector: str, text: str):
+            <pre><code><span class="comment">async def type_text_in_input(page: Page, selector: str, text: str):</span>
     await page.type(selector, text)
 
-async def press_key_on_keyboard(page: Page, key: str):
+<span class="comment">async def press_key_on_keyboard(page: Page, key: str):</span>
     await page.keyboard.press(key)
 
-async def release_key_on_keyboard(page: Page, key: str):
+<span class="comment">async def release_key_on_keyboard(page: Page, key: str):</span>
     await page.keyboard.release(key)
 
-async def move_mouse_and_click(page: Page, x: int, y: int):
+<span class="comment">async def move_mouse_and_click(page: Page, x: int, y: int):</span>
     await page.mouse.move(x, y)
     await page.mouse.click()
             </code></pre>
@@ -73,20 +73,20 @@ async def move_mouse_and_click(page: Page, x: int, y: int):
 
         <div class="chat-message bot">
             <p><strong>Выполнение (eval) Javascript-кода</strong></p>
-            <pre><code>async def evaluate_js(page: Page, js_code: str):
+            <pre><code><span class="comment">async def evaluate_js(page: Page, js_code: str):</span>
     return await page.evaluate(js_code)
             </code></pre>
         </div>
 
         <div class="chat-message bot">
             <p><strong>Фреймы</strong></p>
-            <pre><code>async def get_frame_by_name(page: Page, name: str):
+            <pre><code><span class="comment">async def get_frame_by_name(page: Page, name: str):</span>
     return await page.frame(name=name)
 
-async def get_frame_by_index(page: Page, index: int):
+<span class="comment">async def get_frame_by_index(page: Page, index: int):</span>
     return await page.frame(index=index)
 
-async def evaluate_js_in_frame(frame, js_code: str):
+<span class="comment">async def evaluate_js_in_frame(frame, js_code: str):</span>
     await frame.evaluate(js_code)
             </code></pre>
         </div>
