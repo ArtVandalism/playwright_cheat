@@ -24,12 +24,12 @@ body {
     width: 95%;
     max-width: 1200px;
     border: 1px solid #21323d;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #07111d;
-    padding: 25px;
+    padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
-    height: 80vh;
+    height: 95vh;
 }
 
 /* Стили для сообщений чата */
@@ -78,7 +78,7 @@ pre {
 
 code {
     font-family: monospace;
-    color: #415b8e;
+    color: #ffdcd2;
     text-align: justify;
 }
 
