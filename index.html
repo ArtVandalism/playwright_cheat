@@ -3,108 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Шпаргалка Playwright</title>
+    <title>Playwright Cheat Sheet</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Шпаргалка Playwright</h1>
-
-        <div class="section">
-            <h2>Навигация</h2>
-            <pre><code id="nav1">async def navigate_to_url(page: Page, url: str):\n    """\n    Переход по указанному URL.\n    """\n    await page.goto(url)</code></pre>
-            <button class="copy-btn" data-target="nav1">Скопировать</button>
-            <div class="tooltip" id="tooltip-nav1">Скопировано!</div>
-
-            <pre><code id="nav2">async def reload_page(page: Page):\n    """\n    Перезагрузка текущей страницы.\n    """\n    await page.reload()</code></pre>
-            <button class="copy-btn" data-target="nav2">Скопировать</button>
-            <div class="tooltip" id="tooltip-nav2">Скопировано!</div>
-
-            <pre><code id="nav3">async def go_back(page: Page):\n    """\n    Переход на предыдущую страницу в истории.\n    """\n    await page.go_back()</code></pre>
-            <button class="copy-btn" data-target="nav3">Скопировать</button>
-            <div class="tooltip" id="tooltip-nav3">Скопировано!</div>
-
-            <pre><code id="nav4">async def go_forward(page: Page):\n    """\n    Переход на следующую страницу в истории.\n    """\n    await page.go_forward()</code></pre>
-            <button class="copy-btn" data-target="nav4">Скопировать</button>
-            <div class="tooltip" id="tooltip-nav4">Скопировано!</div>
+        <h1>Playwright Cheat Sheet</h1>
+        
+        <div class="function-block">
+            <h2>Page.goto(url, options)</h2>
+            <pre><code>await page.goto('https://example.com', { waitUntil: 'networkidle' });</code></pre>
         </div>
 
-        <div class="section">
-            <h2>Работа с элементами</h2>
-            <pre><code id="elem1">async def click_element(page: Page, selector: str):\n    """\n    Клик по элементу, определённому селектором.\n    """\n    await page.click(selector)</code></pre>
-            <button class="copy-btn" data-target="elem1">Скопировать</button>
-            <div class="tooltip" id="tooltip-elem1">Скопировано!</div>
-
-            <pre><code id="elem2">async def type_text(page: Page, selector: str, text: str):\n    """\n    Ввод текста в поле ввода.\n    """\n    await page.type(selector, text)</code></pre>
-            <button class="copy-btn" data-target="elem2">Скопировать</button>
-            <div class="tooltip" id="tooltip-elem2">Скопировано!</div>
-
-            <pre><code id="elem3">async def press_key(page: Page, selector: str, key: str):\n    """\n    Нажатие клавиши в поле ввода.\n    """\n    await page.press(selector, key)</code></pre>
-            <button class="copy-btn" data-target="elem3">Скопировать</button>
-            <div class="tooltip" id="tooltip-elem3">Скопировано!</div>
-
-            <pre><code id="elem4">async def get_text_content(page: Page, selector: str) -> str:\n    """\n    Получение текстового содержимого элемента.\n    """\n    return await page.text_content(selector)</code></pre>
-            <button class="copy-btn" data-target="elem4">Скопировать</button>
-            <div class="tooltip" id="tooltip-elem4">Скопировано!</div>
-
-            <pre><code id="elem5">async def select_option(page: Page, selector: str, label: str):\n    """\n    Выбор опции в раскрывающемся списке по метке.\n    """\n    await page.select_option(selector, label=label)</code></pre>
-            <button class="copy-btn" data-target="elem5">Скопировать</button>
-            <div class="tooltip" id="tooltip-elem5">Скопировано!</div>
-
-            <pre><code id="elem6">async def wait_for_element(page: Page, selector: str, state: str):\n    """\n    Ожидание появления или видимости элемента.\n    """\n    await page.wait_for_selector(selector, state=state)</code></pre>
-            <button class="copy-btn" data-target="elem6">Скопировать</button>
-            <div class="tooltip" id="tooltip-elem6">Скопировано!</div>
-
-            <pre><code id="elem7">async def check_element_visibility(page: Page, selector: str):\n    """\n    Проверка, существует ли элемент и виден ли он.\n    """\n    assert await page.locator(selector).is_visible()</code></pre>
-            <button class="copy-btn" data-target="elem7">Скопировать</button>
-            <div class="tooltip" id="tooltip-elem7">Скопировано!</div>
-
-            <pre><code id="elem8">async def check_page_title(page: Page, expected_title: str):\n    """\n    Проверка заголовка страницы.\n    """\n    assert await page.title() == expected_title</code></pre>
-            <button class="copy-btn" data-target="elem8">Скопировать</button>
-            <div class="tooltip" id="tooltip-elem8">Скопировано!</div>
+        <div class="function-block">
+            <h2>Page.click(selector, options)</h2>
+            <pre><code>await page.click('#submit-button');</code></pre>
         </div>
 
-        <div class="section">
-            <h2>Клавиатура и мышь</h2>
-            <pre><code id="mouse1">async def type_text_in_input(page: Page, selector: str, text: str):\n    """\n    Ввести текст в поле ввода.\n    """\n    await page.type(selector, text)</code></pre>
-            <button class="copy-btn" data-target="mouse1">Скопировать</button>
-            <div class="tooltip" id="tooltip-mouse1">Скопировано!</div>
-
-            <pre><code id="mouse2">async def press_key_on_keyboard(page: Page, key: str):\n    """\n    Нажать клавишу на клавиатуре.\n    """\n    await page.keyboard.press(key)</code></pre>
-            <button class="copy-btn" data-target="mouse2">Скопировать</button>
-            <div class="tooltip" id="tooltip-mouse2">Скопировано!</div>
-
-            <pre><code id="mouse3">async def release_key_on_keyboard(page: Page, key: str):\n    """\n    Отпустить клавишу на клавиатуре.\n    """\n    await page.keyboard.release(key)</code></pre>
-            <button class="copy-btn" data-target="mouse3">Скопировать</button>
-            <div class="tooltip" id="tooltip-mouse3">Скопировано!</div>
-
-            <pre><code id="mouse4">async def move_mouse_and_click(page: Page, x: int, y: int):\n    """\n    Передвинуть мышь в указанную позицию и кликнуть.\n    """\n    await page.mouse.move(x, y)\n    await page.mouse.click()</code></pre>
-            <button class="copy-btn" data-target="mouse4">Скопировать</button>
-            <div class="tooltip" id="tooltip-mouse4">Скопировано!</div>
+        <div class="function-block">
+            <h2>Page.type(selector, text, options)</h2>
+            <pre><code>await page.type('#username', 'my-username');</code></pre>
         </div>
 
-        <div class="section">
-            <h2>Выполнение (eval) Javascript-кода</h2>
-            <pre><code id="js1">async def evaluate_js(page: Page, js_code: str):\n    """\n    Выполнить JavaScript-код в контексте страницы.\n    """\n    return await page.evaluate(js_code)</code></pre>
-            <button class="copy-btn" data-target="js1">Скопировать</button>
-            <div class="tooltip" id="tooltip-js1">Скопировано!</div>
+        <div class="function-block">
+            <h2>Page.waitForSelector(selector, options)</h2>
+            <pre><code>await page.waitForSelector('#result', { state: 'visible' });</code></pre>
         </div>
 
-        <div class="section">
-            <h2>Фреймы</h2>
-            <pre><code id="frame1">async def get_frame_by_name(page: Page, name: str):\n    """\n    Получить фрейм по имени.\n    """\n    return await page.frame(name=name)</code></pre>
-            <button class="copy-btn" data-target="frame1">Скопировать</button>
-            <div class=“tooltip” id=“tooltip-frame1”>Скопировано!
-                        <pre><code id="frame2">async def get_frame_by_index(page: Page, index: int):\n    """\n    Получить фрейм по индексу.\n    """\n    return await page.frame(index=index)</code></pre>
-        <button class="copy-btn" data-target="frame2">Скопировать</button>
-        <div class="tooltip" id="tooltip-frame2">Скопировано!</div>
+        <div class="function-block">
+            <h2>Browser.newPage()</h2>
+            <pre><code>const page = await browser.newPage();</code></pre>
+        </div>
 
-        <pre><code id="frame3">async def evaluate_js_in_frame(frame, js_code: str):\n    """\n    Выполнить JavaScript-код в контексте фрейма.\n    """\n    await frame.evaluate(js_code)</code></pre>
-        <button class="copy-btn" data-target="frame3">Скопировать</button>
-        <div class="tooltip" id="tooltip-frame3">Скопировано!</div>
+        <div class="function-block">
+            <h2>Page.screenshot(options)</h2>
+            <pre><code>await page.screenshot({ path: 'screenshot.png' });</code></pre>
+        </div>
+
+        <div class="function-block">
+            <h2>Page.evaluate(pageFunction, ...args)</h2>
+            <pre><code>const title = await page.evaluate(() => document.title);</code></pre>
+        </div>
+
+        <div class="function-block">
+            <h2>Page.pdf(options)</h2>
+            <pre><code>await page.pdf({ path: 'document.pdf', format: 'A4' });</code></pre>
+        </div>
     </div>
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>
