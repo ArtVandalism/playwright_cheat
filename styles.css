@@ -33,9 +33,10 @@ html, body {
 
 /* Стили для сообщений чата */
 .chat-message {
-    box-sizing: content-box;
+    box-sizing: border-box;
     width: 100%;
     margin-bottom: 10px;
+    box-pack: justify;
 }
 
 .chat-message p {
