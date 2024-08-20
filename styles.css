@@ -2,7 +2,7 @@
 body {
     font-family: Consolas, lucida console;
     background-color: #121212;
-    color: #e0e0e0;
+    color: #FCDEF0;
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,7 +14,7 @@ body {
 }
 
 ::selection {
-  background-color: #013896;
+  background-color: #FF97BB;
   color: #f1f1f1;
 } 
 
@@ -34,10 +34,9 @@ body {
 
 /* Стили для сообщений чата */
 .chat-message {
-    width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    box-sizing: content-box;
+    width: 100%;
+    box-shadow: 60px -16px teal;
     margin-bottom: 15px;
 }
 
