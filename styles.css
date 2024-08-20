@@ -5,7 +5,7 @@ body {
     color: #FCDEF0;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -36,7 +36,6 @@ body {
 .chat-message {
     box-sizing: content-box;
     width: 100%;
-    box-shadow: 60px -16px teal;
     margin-bottom: 15px;
 }
 
@@ -74,15 +73,18 @@ pre {
     border-radius: 5px;
     overflow-x: auto;
     margin: 0;
+    text-align: justify;
 }
 
 code {
     font-family: monospace;
-    color: #c5c5c5;
+    color: #FDCEE8;
+    text-align: justify;
 }
 
 /* Стили для комментариев */
 .comment {
     font-weight: bold;
-    color: #8ab4f8;
+    color: #D7E1F4;
+    text-align: justify;
 }
