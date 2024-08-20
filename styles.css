@@ -23,7 +23,7 @@ body {
 .chat-container {
     width: 80%;
     max-width: 1000px;
-    border: 2px solid #333;
+    border: 1px solid #333;
     border-radius: 15px;
     background-color: #1e1e1e;
     padding: 25px;
@@ -42,7 +42,7 @@ body {
 .chat-message p {
     font-weight: bold;
     margin: 0;
-    color: #fff;
+    color: #8759B1;
 }
 
 .chat-message.bot {
@@ -78,13 +78,13 @@ pre {
 
 code {
     font-family: monospace;
-    color: #FDCEE8;
+    color: #EDDE78;
     text-align: justify;
 }
 
 /* Стили для комментариев */
 .comment {
     font-weight: bold;
-    color: #D7E1F4;
+    color: #88BF73;
     text-align: justify;
 }
