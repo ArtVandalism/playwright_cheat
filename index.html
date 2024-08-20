@@ -1,53 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playwright Cheat Sheet</title>
+    <title>Примеры функций Playwright</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Playwright Cheat Sheet</h1>
-        
-        <div class="function-block">
-            <h2>Page.goto(url, options)</h2>
-            <pre><code>await page.goto('https://example.com', { waitUntil: 'networkidle' });</code></pre>
+    <div class="chat-container">
+        <div class="chat-message bot">
+            <p><strong>Навигация</strong></p>
+            <pre><code>from playwright.async_api import Page
+
+async def navigate_to_url(page: Page, url: str):
+    await page.goto(url)
+
+async def reload_page(page: Page):
+    await page.reload()
+
+async def go_back(page: Page):
+    await page.go_back()
+
+async def go_forward(page: Page):
+    await page.go_forward()
+            </code></pre>
         </div>
 
-        <div class="function-block">
-            <h2>Page.click(selector, options)</h2>
-            <pre><code>await page.click('#submit-button');</code></pre>
+        <div class="chat-message bot">
+            <p><strong>Работа с элементами</strong></p>
+            <pre><code>async def click_element(page: Page, selector: str):
+    await page.click(selector)
+
+async def type_text(page: Page, selector: str, text: str):
+    await page.type(selector, text)
+
+async def press_key(page: Page, selector: str, key: str):
+    await page.press(selector, key)
+
+async def get_text_content(page: Page, selector: str) -> str:
+    return await page.text_content(selector)
+
+async def select_option(page: Page, selector: str, label: str):
+    await page.select_option(selector, label=label)
+
+async def wait_for_element(page: Page, selector: str, state: str):
+    await page.wait_for_selector(selector, state=state)
+
+async def check_element_visibility(page: Page, selector: str):
+    assert await page.locator(selector).is_visible()
+
+async def check_page_title(page: Page, expected_title: str):
+    assert await page.title() == expected_title
+            </code></pre>
         </div>
 
-        <div class="function-block">
-            <h2>Page.type(selector, text, options)</h2>
-            <pre><code>await page.type('#username', 'my-username');</code></pre>
+        <div class="chat-message bot">
+            <p><strong>Клавиатура и мышь</strong></p>
+            <pre><code>async def type_text_in_input(page: Page, selector: str, text: str):
+    await page.type(selector, text)
+
+async def press_key_on_keyboard(page: Page, key: str):
+    await page.keyboard.press(key)
+
+async def release_key_on_keyboard(page: Page, key: str):
+    await page.keyboard.release(key)
+
+async def move_mouse_and_click(page: Page, x: int, y: int):
+    await page.mouse.move(x, y)
+    await page.mouse.click()
+            </code></pre>
         </div>
 
-        <div class="function-block">
-            <h2>Page.waitForSelector(selector, options)</h2>
-            <pre><code>await page.waitForSelector('#result', { state: 'visible' });</code></pre>
+        <div class="chat-message bot">
+            <p><strong>Выполнение (eval) Javascript-кода</strong></p>
+            <pre><code>async def evaluate_js(page: Page, js_code: str):
+    return await page.evaluate(js_code)
+            </code></pre>
         </div>
 
-        <div class="function-block">
-            <h2>Browser.newPage()</h2>
-            <pre><code>const page = await browser.newPage();</code></pre>
-        </div>
+        <div class="chat-message bot">
+            <p><strong>Фреймы</strong></p>
+            <pre><code>async def get_frame_by_name(page: Page, name: str):
+    return await page.frame(name=name)
 
-        <div class="function-block">
-            <h2>Page.screenshot(options)</h2>
-            <pre><code>await page.screenshot({ path: 'screenshot.png' });</code></pre>
-        </div>
+async def get_frame_by_index(page: Page, index: int):
+    return await page.frame(index=index)
 
-        <div class="function-block">
-            <h2>Page.evaluate(pageFunction, ...args)</h2>
-            <pre><code>const title = await page.evaluate(() => document.title);</code></pre>
-        </div>
-
-        <div class="function-block">
-            <h2>Page.pdf(options)</h2>
-            <pre><code>await page.pdf({ path: 'document.pdf', format: 'A4' });</code></pre>
+async def evaluate_js_in_frame(frame, js_code: str):
+    await frame.evaluate(js_code)
+            </code></pre>
         </div>
     </div>
 </body>
