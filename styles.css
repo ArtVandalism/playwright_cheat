@@ -14,7 +14,6 @@ body {
 }
 
 h1, h2 {
-    text-align: center;
     color: #f8f8f2;
 }
 
@@ -22,15 +21,29 @@ h1 {
     text-align: center;
 }
 
-pre {
+pre.code-block {
+    position: relative;
     background-color: #1e1e1e;
     border-radius: 5px;
     padding: 10px;
+    margin: 0;
     overflow: auto;
+    border: 1px solid #444; /* Slight border around the code block */
+}
+
+pre.code-block::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #555;
+    border-radius: 5px;
+    pointer-events: none; /* Allows clicking on the code block without interference */
 }
 
 code {
-    text-align: center;
     display: block;
     white-space: pre-wrap;
 }
@@ -40,8 +53,21 @@ pre code {
     font-size: 14px;
 }
 
-section {
-    margin-bottom: 20px;
+/* Syntax highlighting example colors, adjust as needed */
+.code-block .keyword {
+    color: #ff79c6;
+}
+
+.code-block .string {
+    color: #f1fa8c;
+}
+
+.code-block .comment {
+    color: #6272a4;
+}
+
+.code-block .function {
+    color: #50fa7b;
 }
 
 .tooltip {
