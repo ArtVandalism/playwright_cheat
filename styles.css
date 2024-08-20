@@ -8,10 +8,9 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     background: linear-gradient(to top,#282828,#131312);
     text-align: center;
-    position: relative;
 }
 
 ::selection {
@@ -20,19 +19,23 @@ html, body {
 } 
 
 .chat-container {
-    width: 100vh;
-    border: 1px solid #21323d;
+    width: 100%;
+    max-wight: 1200px;
     border-radius: 10px;
     background-color: #07111d;
     padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
-    height: 100vh;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Стили для сообщений чата */
 .chat-message {
     box-sizing: border-box;
+    word-wrap: break-word;
     width: 100%;
     margin-bottom: 10px;
     box-pack: justify;
@@ -87,4 +90,14 @@ code {
     font-weight: bold;
     color: #6997bf;
     text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .chat-container {
+        padding: 10px;
+    }
+
+    .chat-bubble {
+        padding: 10px;
+    }
 }
