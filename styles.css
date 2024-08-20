@@ -14,6 +14,7 @@ body {
 }
 
 h1, h2 {
+    text-align: center;
     color: #f8f8f2;
 }
 
@@ -29,6 +30,7 @@ pre {
 }
 
 code {
+    text-align: center;
     display: block;
     white-space: pre-wrap;
 }
