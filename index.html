@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Примеры функций Playwright</title>
+    <title>Шпаргалка Playwright</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,81 +13,81 @@
             <pre><code><span class="comment">from playwright.async_api import Page</span>
 
 <span class="comment">async def navigate_to_url(page: Page, url: str):</span>
-    await page.goto(url)
+    await page.goto(url) #Переход по указанному URL.
 
 <span class="comment">async def reload_page(page: Page):</span>
-    await page.reload()
+    await page.reload() #Перезагрузка текущей страницы.
 
 <span class="comment">async def go_back(page: Page):</span>
-    await page.go_back()
+    await page.go_back() #Переход на предыдущую страницу в истории.
 
 <span class="comment">async def go_forward(page: Page):</span>
-    await page.go_forward()
+    await page.go_forward() #Переход на следующую страницу в истории.
             </code></pre>
         </div>
 
         <div class="chat-message bot">
             <p><strong>Работа с элементами</strong></p>
             <pre><code><span class="comment">async def click_element(page: Page, selector: str):</span>
-    await page.click(selector)
+    await page.click(selector) #Клик по элементу, определённому селектором.
 
 <span class="comment">async def type_text(page: Page, selector: str, text: str):</span>
-    await page.type(selector, text)
+    await page.type(selector, text) #Ввод текста в поле ввода.
 
 <span class="comment">async def press_key(page: Page, selector: str, key: str):</span>
-    await page.press(selector, key)
+    await page.press(selector, key) #Нажатие клавиши в поле ввода.
 
 <span class="comment">async def get_text_content(page: Page, selector: str) -> str:</span>
-    return await page.text_content(selector)
+    return await page.text_content(selector) #Получение текстового содержимого элемента.
 
 <span class="comment">async def select_option(page: Page, selector: str, label: str):</span>
-    await page.select_option(selector, label=label)
+    await page.select_option(selector, label=label) #Выбор опции в раскрывающемся списке по метке.
 
 <span class="comment">async def wait_for_element(page: Page, selector: str, state: str):</span>
-    await page.wait_for_selector(selector, state=state)
+    await page.wait_for_selector(selector, state=state)    #Ожидание появления или видимости элемента.
 
 <span class="comment">async def check_element_visibility(page: Page, selector: str):</span>
-    assert await page.locator(selector).is_visible()
+    assert await page.locator(selector).is_visible()    #Проверка, существует ли элемент и виден ли он.
 
 <span class="comment">async def check_page_title(page: Page, expected_title: str):</span>
-    assert await page.title() == expected_title
+    assert await page.title() == expected_title    #Проверка заголовка страницы.
             </code></pre>
         </div>
 
         <div class="chat-message bot">
             <p><strong>Клавиатура и мышь</strong></p>
             <pre><code><span class="comment">async def type_text_in_input(page: Page, selector: str, text: str):</span>
-    await page.type(selector, text)
+    await page.type(selector, text)    #Ввести текст в поле ввода.
 
 <span class="comment">async def press_key_on_keyboard(page: Page, key: str):</span>
-    await page.keyboard.press(key)
+    await page.keyboard.press(key)    #Нажать клавишу на клавиатуре.
 
 <span class="comment">async def release_key_on_keyboard(page: Page, key: str):</span>
-    await page.keyboard.release(key)
+    await page.keyboard.release(key)    #Отпустить клавишу на клавиатуре.
 
 <span class="comment">async def move_mouse_and_click(page: Page, x: int, y: int):</span>
     await page.mouse.move(x, y)
-    await page.mouse.click()
+    await page.mouse.click()    #Передвинуть мышь в указанную позицию и кликнуть.
             </code></pre>
         </div>
 
         <div class="chat-message bot">
             <p><strong>Выполнение (eval) Javascript-кода</strong></p>
             <pre><code><span class="comment">async def evaluate_js(page: Page, js_code: str):</span>
-    return await page.evaluate(js_code)
+    return await page.evaluate(js_code)    #Выполнить JavaScript-код в контексте страницы.
             </code></pre>
         </div>
 
         <div class="chat-message bot">
             <p><strong>Фреймы</strong></p>
             <pre><code><span class="comment">async def get_frame_by_name(page: Page, name: str):</span>
-    return await page.frame(name=name)
+    return await page.frame(name=name)    #Получить фрейм по имени.
 
 <span class="comment">async def get_frame_by_index(page: Page, index: int):</span>
-    return await page.frame(index=index)
+    return await page.frame(index=index)    #Получить фрейм по индексу.
 
 <span class="comment">async def evaluate_js_in_frame(frame, js_code: str):</span>
-    await frame.evaluate(js_code)
+    await frame.evaluate(js_code)    #Выполнить JavaScript-код в контексте фрейма.
             </code></pre>
         </div>
     </div>
