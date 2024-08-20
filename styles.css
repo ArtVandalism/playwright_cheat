@@ -17,11 +17,11 @@ html, body {
   color: #ae2c11;
 } 
 
-/*.chat-container {
+.chat-container {
     width: 100%;
     max-wight: 1200px;
     border-radius: 10px;
-    background-color: #07111d;
+    background-color: #131312;
     padding: 15px;
     overflow-y: auto;
     height: 100%;
@@ -31,7 +31,7 @@ html, body {
     gap: 10px;
 }
 
- Стили для сообщений чата */
+ /*Стили для сообщений чата */
 .chat-message {
     box-sizing: border-box;
     word-wrap: break-word;
