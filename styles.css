@@ -1,7 +1,7 @@
 /* Общие стили для страницы */
 body {
     font-family: Andale Mono, monospace;
-    background-color: #07111d;
+    background-color: #131312;
     color: #ae2c11;
     margin: 0;
     padding: 0;
@@ -42,11 +42,11 @@ body {
 .chat-message p {
     font-weight: bold;
     margin: 0;
-    color: #db9941;
+    color: #975642;
 }
 
 .chat-message.bot {
-    background-color: #07111d;
+    background-color: #104360;
     padding: 10px;
     border-radius: 10px;
     position: relative;
@@ -67,7 +67,7 @@ body {
 
 /* Стили для кода */
 pre {
-    background-color: #07111d;
+    background-color: #2a2d3c;
     border: 1px solid #21323d;
     padding: 10px;
     border-radius: 5px;
@@ -78,13 +78,13 @@ pre {
 
 code {
     font-family: monospace;
-    color: #db9941;
+    color: #415b8e;
     text-align: justify;
 }
 
 /* Стили для комментариев */
 .comment {
     font-weight: bold;
-    color: #db9941;
+    color: #6997bf;
     text-align: justify;
 }
