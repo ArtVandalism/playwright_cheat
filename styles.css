@@ -11,18 +11,7 @@ html, body {
     height: 100vh;
     background: linear-gradient(to top,#282828,#131312);
     text-align: center;
-    overflow: hidden;
-}
-
-/* Для всех современных браузеров */
-.container {
-    overflow: auto; /* Включает прокрутку */
-}
-
-/* Для Webkit-браузеров */
-.container::-webkit-scrollbar {
-    width: 0; /* Убирает полосы прокрутки, но позволяет прокрутку */
-    background: transparent; /* Скрывает фон полос прокрутки */
+    position: fixed;
 }
 
 ::selection {
@@ -38,7 +27,7 @@ html, body {
     background-color: #07111d;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    overflow-y: hidden;
+    overflow-y: auto;
     height: 100vh;
 }
 
@@ -83,7 +72,7 @@ pre {
     border: 1px solid #21323d;
     padding: 10px;
     border-radius: 5px;
-    overflow-x: hidden;
+    overflow-x: auto;
     margin: 0;
     text-align: justify;
 }
