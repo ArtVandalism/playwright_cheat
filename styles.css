@@ -11,7 +11,7 @@ html, body {
     height: 100vh;
     background: linear-gradient(to top,#282828,#131312);
     text-align: center;
-    position: fixed;
+    position: auto;
     overflow: hidden;
 }
 
@@ -39,7 +39,7 @@ html, body {
     background-color: #07111d;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
+    overflow-y: hidden;
     height: 100vh;
 }
 
@@ -84,7 +84,7 @@ pre {
     border: 1px solid #21323d;
     padding: 10px;
     border-radius: 5px;
-    overflow-x: auto;
+    overflow-x: hidden;
     margin: 0;
     text-align: justify;
 }
