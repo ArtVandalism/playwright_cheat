@@ -23,7 +23,7 @@ html, body {
     border-radius: 10px;
     background-color: #131312;
     padding: 15px;
-    overflow-y: auto;
+    overflow: auto;
     height: 100%;
     box-sizing: border-box;
     display: flex;
