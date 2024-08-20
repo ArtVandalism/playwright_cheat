@@ -5,7 +5,7 @@ html, body {
     color: #ae2c11;
     margin: 0;
     padding: 0;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -19,15 +19,13 @@ html, body {
   color: #ae2c11;
 } 
 
-.fullheight { height: 100vh; } 
-
 .chat-container {
     width: 100%;
     max-width: 1280px;
     border: 1px solid #21323d;
     border-radius: 10px;
     background-color: #07111d;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
     height: 100vh;
@@ -37,7 +35,7 @@ html, body {
 .chat-message {
     box-sizing: content-box;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .chat-message p {
