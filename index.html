@@ -5,167 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playwright Async Functions Cheatsheet</title>
     <style>
-        :root {
-            --background-light: #f4f4f4;
-            --text-light: #333;
-            --background-dark: #1e1e1e;
-            --text-dark: #ff79c6;
-            --primary-color: #0056b3;
-        }
-
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            background-color: #1e1e1e;
+            color: #dcdcdc;
             margin: 0;
             padding: 20px;
-            background-color: var(--background-light);
-            color: var(--text-light);
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
-
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: #569cd6; /* Синий цвет для заголовков */
         }
-
         h2 {
-            color: var(--primary-color);
+            color: #569cd6; /* Синий цвет для заголовков */
         }
-
         pre {
-            background-color: #333;
-            color: #f8f8f2;
+            background-color: #282a36;
+            color: #dcdcdc;
             padding: 10px;
             border-radius: 5px;
             overflow-x: auto;
+            position: relative;
         }
-
         code {
-            color: #ff79c6;
+            color: #c586c0; /* Лиловый цвет для синтаксиса */
         }
-
-        .theme-toggle {
-            display: block;
-            margin: 20px auto;
-            text-align: center;
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #44475a;
+            color: #dcdcdc;
+            border: none;
+            padding: 5px 10px;
             cursor: pointer;
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
             border-radius: 5px;
-            text-transform: uppercase;
+            font-size: 12px;
         }
-
-        .dark-theme {
-            background-color: var(--background-dark);
-            color: var(--text-dark);
+        .copy-button:hover {
+            background-color: #6272a4;
         }
-
-        .dark-theme h2 {
-            color: var(--text-dark);
+        .copy-button:active {
+            background-color: #44475a;
         }
-
-        .dark-theme pre {
-            background-color: #222;
+        .copy-button:focus {
+            outline: none;
         }
     </style>
 </head>
 <body>
     <h1>Playwright Async Functions Cheatsheet</h1>
 
-    <div class="theme-toggle" onclick="toggleTheme()">Toggle Dark Theme</div>
-
     <h2>Навигация</h2>
-    <pre><code>async def navigate_to_url(page, url):
+    <pre><button class="copy-button" onclick="copyToClipboard('navigate_to_url')">Copy</button><code id="navigate_to_url">async def navigate_to_url(page, url):
     response = await page.goto(url)
-    return response.status
+    return response.status</code></pre>
 
-async def reload_page(page):
+    <pre><button class="copy-button" onclick="copyToClipboard('reload_page')">Copy</button><code id="reload_page">async def reload_page(page):
     response = await page.reload()
-    return response.status
+    return response.status</code></pre>
 
-async def navigate_back(page):
+    <pre><button class="copy-button" onclick="copyToClipboard('navigate_back')">Copy</button><code id="navigate_back">async def navigate_back(page):
     response = await page.go_back()
-    return response.status if response else 'No response'
+    return response.status if response else 'No response'</code></pre>
 
-async def navigate_forward(page):
+    <pre><button class="copy-button" onclick="copyToClipboard('navigate_forward')">Copy</button><code id="navigate_forward">async def navigate_forward(page):
     response = await page.go_forward()
-    return response.status if response else 'No response'
-</code></pre>
+    return response.status if response else 'No response'</code></pre>
 
     <h2>Работа с элементами</h2>
-    <pre><code>async def click_element(page, selector):
-    await page.click(selector)
+    <pre><button class="copy-button" onclick="copyToClipboard('click_element')">Copy</button><code id="click_element">async def click_element(page, selector):
+    await page.click(selector)</code></pre>
 
-async def type_text(page, selector, text):
-    await page.type(selector, text)
+    <pre><button class="copy-button" onclick="copyToClipboard('type_text')">Copy</button><code id="type_text">async def type_text(page, selector, text):
+    await page.type(selector, text)</code></pre>
 
-async def press_key(page, selector, key):
-    await page.press(selector, key)
+    <pre><button class="copy-button" onclick="copyToClipboard('press_key')">Copy</button><code id="press_key">async def press_key(page, selector, key):
+    await page.press(selector, key)</code></pre>
 
-async def get_text_content(page, selector):
+    <pre><button class="copy-button" onclick="copyToClipboard('get_text_content')">Copy</button><code id="get_text_content">async def get_text_content(page, selector):
     text = await page.text_content(selector)
-    return text
+    return text</code></pre>
 
-async def select_option(page, selector, label):
-    await page.select_option(selector, label=label)
+    <pre><button class="copy-button" onclick="copyToClipboard('select_option')">Copy</button><code id="select_option">async def select_option(page, selector, label):
+    await page.select_option(selector, label=label)</code></pre>
 
-async def wait_for_element(page, selector, state='visible'):
-    await page.wait_for_selector(selector, state=state)
+    <pre><button class="copy-button" onclick="copyToClipboard('wait_for_element')">Copy</button><code id="wait_for_element">async def wait_for_element(page, selector, state='visible'):
+    await page.wait_for_selector(selector, state=state)</code></pre>
 
-async def is_element_visible(page, selector):
-    return await page.locator(selector).is_visible()
+    <pre><button class="copy-button" onclick="copyToClipboard('is_element_visible')">Copy</button><code id="is_element_visible">async def is_element_visible(page, selector):
+    return await page.locator(selector).is_visible()</code></pre>
 
-async def get_page_title(page):
-    return await page.title()
-</code></pre>
+    <pre><button class="copy-button" onclick="copyToClipboard('get_page_title')">Copy</button><code id="get_page_title">async def get_page_title(page):
+    return await page.title()</code></pre>
 
     <h2>Алерты и диалоговые окна</h2>
-    <pre><code>async def accept_dialog(dialog):
-    await dialog.accept()
+    <pre><button class="copy-button" onclick="copyToClipboard('accept_dialog')">Copy</button><code id="accept_dialog">async def accept_dialog(dialog):
+    await dialog.accept()</code></pre>
 
-async def dismiss_dialog(dialog):
-    await dialog.dismiss()
+    <pre><button class="copy-button" onclick="copyToClipboard('dismiss_dialog')">Copy</button><code id="dismiss_dialog">async def dismiss_dialog(dialog):
+    await dialog.dismiss()</code></pre>
 
-async def setup_dialog_handlers(page):
+    <pre><button class="copy-button" onclick="copyToClipboard('setup_dialog_handlers')">Copy</button><code id="setup_dialog_handlers">async def setup_dialog_handlers(page):
     page.on('dialog', accept_dialog)
-    page.on('dialog', dismiss_dialog)
-</code></pre>
+    page.on('dialog', dismiss_dialog)</code></pre>
 
     <h2>Клавиатура и мышь</h2>
-    <pre><code>async def type_input(page, selector, text):
-    await page.type(selector, text)
+    <pre><button class="copy-button" onclick="copyToClipboard('type_input')">Copy</button><code id="type_input">async def type_input(page, selector, text):
+    await page.type(selector, text)</code></pre>
 
-async def press_keyboard_key(page, key):
-    await page.keyboard.press(key)
+    <pre><button class="copy-button" onclick="copyToClipboard('press_keyboard_key')">Copy</button><code id="press_keyboard_key">async def press_keyboard_key(page, key):
+    await page.keyboard.press(key)</code></pre>
 
-async def release_keyboard_key(page, key):
-    await page.keyboard.release(key)
+    <pre><button class="copy-button" onclick="copyToClipboard('release_keyboard_key')">Copy</button><code id="release_keyboard_key">async def release_keyboard_key(page, key):
+    await page.keyboard.release(key)</code></pre>
 
-async def move_and_click_mouse(page, x, y):
+    <pre><button class="copy-button" onclick="copyToClipboard('move_and_click_mouse')">Copy</button><code id="move_and_click_mouse">async def move_and_click_mouse(page, x, y):
     await page.mouse.move(x, y)
-    await page.mouse.click()
-</code></pre>
+    await page.mouse.click()</code></pre>
 
     <h2>Выполнение (eval) Javascript-кода</h2>
-    <pre><code>async def execute_js(page, script):
-    return await page.evaluate(script)
-</code></pre>
+    <pre><button class="copy-button" onclick="copyToClipboard('execute_js')">Copy</button><code id="execute_js">async def execute_js(page, script):
+    return await page.evaluate(script)</code></pre>
 
     <h2>Фреймы</h2>
-    <pre><code>async def get_frame_by_name(page, name):
-    return await page.frame(name=name)
+    <pre><button class="copy-button" onclick="copyToClipboard('get_frame_by_name')">Copy</button><code id="get_frame_by_name">async def get_frame_by_name(page, name):
+    return await page.frame(name=name)</code></pre>
 
-async def get_frame_by_index(page, index):
-    return await page.frame(index=index)
+    <pre><button class="copy-button" onclick="copyToClipboard('get_frame_by_index')">Copy</button><code id="get_frame_by_index">async def get_frame_by_index(page, index):
+    return await page.frame(index=index)</code></pre>
 
-async def execute_js_in_frame(frame, script):
-    return await frame.evaluate(script)
-</code></pre>
+    <pre><button class="copy-button" onclick="copyToClipboard('execute_js_in_frame')">Copy</button><code id="execute_js_in_frame">async def execute_js_in_frame(frame, script):
+    return await frame.evaluate(script)</code></pre>
 
     <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
+        function copyToClipboard(id) {
+            const code = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
         }
     </script>
 </body>
