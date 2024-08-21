@@ -10,7 +10,7 @@ html, body {
     align-items: center;
     height: 100%;
     text-align: center;
-    overflow: auto;
+    overflow: hidden;
 
 }
 
@@ -21,7 +21,7 @@ html, body {
 
 .chat-container {
     width: 100%;
-    max-wight: 1920px;
+    max-wight: 1280px;
     border-radius: 10px;
     background-color: #131312;
     margin: 0;
@@ -42,6 +42,7 @@ html, body {
     margin-bottom: 10px;
     box-pack: justify;
     box-align: stretch;
+    align-self: stretch;
 }
 
 .chat-message p {
@@ -75,7 +76,7 @@ pre {
     border: 1px solid #21323d;
     padding: 10px;
     border-radius: 5px;
-    overflow-x: auto;
+    overflow-x: hidden;
     margin: 0;
     text-align: justify;
 }
