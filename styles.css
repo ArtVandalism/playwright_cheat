@@ -26,7 +26,6 @@ html, body {
     background-color: #131312;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     height: 100%;
     box-sizing: border-box;
     display: flex;
@@ -76,7 +75,6 @@ pre {
     border: 1px solid #21323d;
     padding: 10px;
     border-radius: 5px;
-    overflow-x: hidden;
     margin: 0;
     text-align: justify;
 }
