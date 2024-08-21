@@ -5,11 +5,16 @@ body {
     padding: 20px;
 }
 
+h2, h3 {
+    color: #dcdcaa; /* Цвет для заголовков */
+}
+
 .code-container {
     position: relative;
     background-color: #2d2d2d;
     border-radius: 5px;
     padding: 10px;
+    margin-bottom: 10px;
     overflow: auto;
     font-family: 'Courier New', Courier, monospace;
     color: #9cdcfe; /* Цвет как в Python IDE */
