@@ -96,3 +96,29 @@ h2 {
 .code-container.tooltip-visible .tooltip {
     opacity: 1;
 }
+@media (max-width: 768px) {
+    .code-container {
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    .copy-button {
+        top: 5px;
+        right: 5px;
+    }
+
+    .tooltip {
+        top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .copy-button {
+        font-size: 14px;
+    }
+
+    .tooltip {
+        font-size: 10px;
+        padding: 3px;
+    }
+}
