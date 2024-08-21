@@ -1,89 +1,41 @@
- /* Общие стили для страницы */
-html, body {
-    font-family: Andale Mono, monospace;
-    background-color: #131312;
-    color: #ae2c11;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    overflow: auto;
-
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 20px;
 }
 
-::selection {
-  background-color: #21323d;
-  color: #ae2c11;
-} 
-
-/* Стили для кода */
-pre {
-    background-color: #2a2d3c;
-    border: 1px solid #21323d;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 0;
-    text-align: justify;
-}
-
-code {
-    font-family: monospace;
-    color: #ffdcd2;
-    text-align: justify;
-}
-
-/* Стили для комментариев */
-.comment {
-    font-weight: bold;
-    color: #6997bf;
-    text-align: justify;
-}
-
-@media (max-width: 768px) {
-    .chat-container {
-        padding: 10px;
-    }
-
-.chat-bubble {
-    padding: 10px;
-    }
-.copy-span {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 5px 0;
+.code-container {
+    position: relative;
     background-color: #2d2d2d;
     border-radius: 5px;
-    cursor: pointer;
-    position: relative;
+    padding: 10px;
+    overflow: auto;
+    font-family: 'Courier New', Courier, monospace;
     color: #9cdcfe; /* Цвет как в Python IDE */
 }
 
-.copy-span:hover {
-    cursor: pointer;
-    background-color: #3d3d3d;
-}
-
-.copy-span::after {
-    content: attr(data-tooltip);
+.copy-button {
     position: absolute;
-    bottom: 100%; /* Позиционируем тултип над текстом */
-    left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    white-space: nowrap;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #9cdcfe;
+    font-size: 18px;
+    cursor: pointer;
+    display: none; /* Скрываем кнопку по умолчанию */
 }
 
-.copy-span.show-tooltip::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-20px); /* Поднимаем тултип */
+.code-container:hover .copy-button {
+    display: block; /* Показываем кнопку при наведении на блок кода */
 }
+
+.copy-button:focus,
+.copy-button:hover {
+    color: #fff; /* Меняем цвет кнопки при фокусе или наведении */
+}
+
+.code-container code {
+    white-space: pre-wrap; /* Сохраняем переносы строк */
 }
