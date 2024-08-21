@@ -3,10 +3,18 @@ body {
     background-color: #1e1e1e;
     color: #d4d4d4;
     padding: 20px;
+    display: flex;
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    height: 100vh; /* Укажите высоту контейнера */
+    text-align: center;
+
+
 }
 
 h2, h3 {
     color: #dcdcaa; /* Цвет для заголовков */
+    text-align: center;
 }
 
 .code-container {
@@ -18,6 +26,10 @@ h2, h3 {
     overflow: auto;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer; /* Показываем, что код можно кликнуть */
+    display: flex;
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    height: 100vh; /* Укажите высоту контейнера */
 }
 
 .code-container:hover {
