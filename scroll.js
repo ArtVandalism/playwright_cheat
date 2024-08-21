@@ -1,10 +1,10 @@
 // JavaScript code
         function disableScrolling() {
             setTimeout(function() {
-                document.body.style.overflow = 'hidden';
+                document.body.styles.overflow = 'hidden';
             }, 1000);
         }
         
         function enableScrolling() {
-            document.body.style.overflow = '';
+            document.body.styles.overflow = '';
         }
