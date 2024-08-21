@@ -5,309 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playwright Code Snippets</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Подключение Prism.js CSS для подсветки -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
 
     <h2>Playwright Code Snippets</h2>
+    
+    <h3>Навигация</h3>
 
-    <div class="table">
-        <!-- Навигация -->
-        <div class="table-row">
-            <div class="table-cell category">Navigation</div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def navigate_to_url(page: Page, url: str):
     await page.goto(url)  # Переход по указанному URL.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def reload_page(page: Page):
     await page.reload()  # Перезагрузка текущей страницы.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def go_back(page: Page):
     await page.go_back()  # Переход на предыдущую страницу в истории.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def go_forward(page: Page):
     await page.go_forward()  # Переход на следующую страницу в истории.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <!-- Работа с элементами -->
-        <div class="table-row">
-            <div class="table-cell category">Element Interaction</div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <h3>Работа с элементами</h3>
+
+    <pre class="code-container">
+        <code class="language-python">
 async def click_element(page: Page, selector: str):
     await page.click(selector)  # Клик по элементу, определённому селектором.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def type_text(page: Page, selector: str, text: str):
     await page.type(selector, text)  # Ввод текста в поле ввода.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def press_key(page: Page, selector: str, key: str):
     await page.press(selector, key)  # Нажатие клавиши в поле ввода.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def get_text_content(page: Page, selector: str) -> str:
     return await page.text_content(selector)  # Получение текстового содержимого элемента.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def select_option(page: Page, selector: str, label: str):
     await page.select_option(selector, label=label)  # Выбор опции в раскрывающемся списке по метке.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def wait_for_element(page: Page, selector: str, state: str):
     await page.wait_for_selector(selector, state=state)  # Ожидание появления или видимости элемента.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def check_element_visibility(page: Page, selector: str):
     assert await page.locator(selector).is_visible()  # Проверка, существует ли элемент и виден ли он.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def check_page_title(page: Page, expected_title: str):
     assert await page.title() == expected_title  # Проверка заголовка страницы.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <!-- Клавиатура и мышь -->
-        <div class="table-row">
-            <div class="table-cell category">Keyboard and Mouse</div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <h3>Клавиатура и мышь</h3>
+
+    <pre class="code-container">
+        <code class="language-python">
 async def type_text_in_input(page: Page, selector: str, text: str):
     await page.type(selector, text)  # Ввести текст в поле ввода.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def press_key_on_keyboard(page: Page, key: str):
     await page.keyboard.press(key)  # Нажать клавишу на клавиатуре.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <!-- Выполнение JavaScript-кода -->
-        <div class="table-row">
-            <div class="table-cell category">JavaScript Execution</div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
+async def release_key_on_keyboard(page: Page, key: str):
+    await page.keyboard.release(key)  # Отпустить клавишу на клавиатуре.
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
+
+    <pre class="code-container">
+        <code class="language-python">
+async def move_mouse_and_click(page: Page, x: int, y: int):
+    await page.mouse.move(x, y)
+    await page.mouse.click()  # Передвинуть мышь в указанную позицию и кликнуть.
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
+
+    <h3>Выполнение (eval) Javascript-кода</h3>
+
+    <pre class="code-container">
+        <code class="language-python">
 async def evaluate_js(page: Page, js_code: str):
     return await page.evaluate(js_code)  # Выполнить JavaScript-код в контексте страницы.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <!-- Фреймы -->
-        <div class="table-row">
-            <div class="table-cell category">Frames</div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <h3>Фреймы</h3>
+
+    <pre class="code-container">
+        <code class="language-python">
 async def get_frame_by_name(page: Page, name: str):
     return await page.frame(name=name)  # Получить фрейм по имени.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def get_frame_by_index(page: Page, index: int):
     return await page.frame(index=index)  # Получить фрейм по индексу.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-        <div class="table-row">
-            <div class="table-cell category"></div>
-            <div class="table-cell code">
-                <div class="code-container">
-                    <pre>
-                        <code class="language-python">
+    <pre class="code-container">
+        <code class="language-python">
 async def evaluate_js_in_frame(frame, js_code: str):
     await frame.evaluate(js_code)  # Выполнить JavaScript-код в контексте фрейма.
-                        </code>
-                    </pre>
-                    <button class="copy-button" aria-label="Copy code">&#128203;</button>
-                    <div class="tooltip">Copied!</div>
-                </div>
-            </div>
-        </div>
+        </code>
+        <button class="copy-button" aria-label="Copy code">&#128203;</button>
+    </pre>
 
-    </div>
-
-    <!-- Подключение Prism.js JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="script.js"></script>
