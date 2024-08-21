@@ -17,7 +17,6 @@ h2, h3 {
     margin-bottom: 10px;
     overflow: auto;
     font-family: 'Courier New', Courier, monospace;
-    color: #9cdcfe; /* Цвет как в Python IDE */
 }
 
 .copy-button {
@@ -34,6 +33,7 @@ h2, h3 {
 
 .code-container:hover .copy-button {
     display: block; /* Показываем кнопку при наведении на блок кода */
+    cursor: pointer;
 }
 
 .copy-button:focus,
