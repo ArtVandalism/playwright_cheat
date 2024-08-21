@@ -3,7 +3,6 @@ body {
     background-color: #1e1e1e;
     color: #d4d4d4;
     padding: 20px;
-    display: flex;
 }
 
 h2, h3 {
@@ -19,7 +18,6 @@ h2, h3 {
     overflow: auto;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer; /* Показываем, что код можно кликнуть */
-    display: flex;
 }
 
 .code-container:hover {
