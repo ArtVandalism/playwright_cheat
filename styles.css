@@ -114,6 +114,7 @@ code {
 }
 
 .copy-span:hover {
+    cursor: pointer;
     background-color: #3d3d3d;
 }
 
