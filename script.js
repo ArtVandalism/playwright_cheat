@@ -1,17 +1,18 @@
-document.querySelectorAll('.copy-span').forEach(span => {
-    span.addEventListener('click', function() {
-        // Копируем текст в буфер обмена
-        const textToCopy = this.innerText;
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            // Показываем тултип
-            this.classList.add('Copy Function');
+document.querySelectorAll('.copy-button').forEach(button => {
+    button.addEventListener('click', function() {
+        // Находим текст внутри элемента <code>
+        const codeBlock = this.previousElementSibling;
+        const codeText = codeBlock.innerText;
 
-            // Убираем тултип через 1.5 секунды
+        // Копируем текст в буфер обмена
+        navigator.clipboard.writeText(codeText).then(() => {
+            // Меняем текст кнопки на "Copied!" временно
+            this.innerHTML = 'Copied!';
             setTimeout(() => {
-                this.classList.remove('Copy Function');
+                this.innerHTML = '&#128203;'; // Возвращаем оригинальную иконку
             }, 1500);
         }).catch(err => {
-            console.error('Failed to copy text: Function', err);
+            console.error('Failed to copy text: ', err);
         });
     });
 });
