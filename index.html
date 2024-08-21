@@ -22,7 +22,7 @@ async def navigate_to_url(page: Page, url: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def reload_page(page: Page):
     await page.reload()  # Перезагрузка текущей страницы.
         </code>
@@ -30,7 +30,7 @@ async def reload_page(page: Page):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def go_back(page: Page):
     await page.go_back()  # Переход на предыдущую страницу в истории.
         </code>
@@ -38,7 +38,7 @@ async def go_back(page: Page):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def go_forward(page: Page):
     await page.go_forward()  # Переход на следующую страницу в истории.
         </code>
@@ -48,7 +48,7 @@ async def go_forward(page: Page):
     <h3>Работа с элементами</h3>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def click_element(page: Page, selector: str):
     await page.click(selector)  # Клик по элементу, определённому селектором.
         </code>
@@ -56,7 +56,7 @@ async def click_element(page: Page, selector: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def type_text(page: Page, selector: str, text: str):
     await page.type(selector, text)  # Ввод текста в поле ввода.
         </code>
@@ -64,7 +64,7 @@ async def type_text(page: Page, selector: str, text: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def press_key(page: Page, selector: str, key: str):
     await page.press(selector, key)  # Нажатие клавиши в поле ввода.
         </code>
@@ -72,7 +72,7 @@ async def press_key(page: Page, selector: str, key: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def get_text_content(page: Page, selector: str) -> str:
     return await page.text_content(selector)  # Получение текстового содержимого элемента.
         </code>
@@ -80,7 +80,7 @@ async def get_text_content(page: Page, selector: str) -> str:
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def select_option(page: Page, selector: str, label: str):
     await page.select_option(selector, label=label)  # Выбор опции в раскрывающемся списке по метке.
         </code>
@@ -88,7 +88,7 @@ async def select_option(page: Page, selector: str, label: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def wait_for_element(page: Page, selector: str, state: str):
     await page.wait_for_selector(selector, state=state)  # Ожидание появления или видимости элемента.
         </code>
@@ -96,7 +96,7 @@ async def wait_for_element(page: Page, selector: str, state: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def check_element_visibility(page: Page, selector: str):
     assert await page.locator(selector).is_visible()  # Проверка, существует ли элемент и виден ли он.
         </code>
@@ -104,7 +104,7 @@ async def check_element_visibility(page: Page, selector: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def check_page_title(page: Page, expected_title: str):
     assert await page.title() == expected_title  # Проверка заголовка страницы.
         </code>
@@ -114,7 +114,7 @@ async def check_page_title(page: Page, expected_title: str):
     <h3>Клавиатура и мышь</h3>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def type_text_in_input(page: Page, selector: str, text: str):
     await page.type(selector, text)  # Ввести текст в поле ввода.
         </code>
@@ -122,7 +122,7 @@ async def type_text_in_input(page: Page, selector: str, text: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def press_key_on_keyboard(page: Page, key: str):
     await page.keyboard.press(key)  # Нажать клавишу на клавиатуре.
         </code>
@@ -130,7 +130,7 @@ async def press_key_on_keyboard(page: Page, key: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def release_key_on_keyboard(page: Page, key: str):
     await page.keyboard.release(key)  # Отпустить клавишу на клавиатуре.
         </code>
@@ -138,7 +138,7 @@ async def release_key_on_keyboard(page: Page, key: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def move_mouse_and_click(page: Page, x: int, y: int):
     await page.mouse.move(x, y)
     await page.mouse.click()  # Передвинуть мышь в указанную позицию и кликнуть.
@@ -149,7 +149,7 @@ async def move_mouse_and_click(page: Page, x: int, y: int):
     <h3>Выполнение (eval) Javascript-кода</h3>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def evaluate_js(page: Page, js_code: str):
     return await page.evaluate(js_code)  # Выполнить JavaScript-код в контексте страницы.
         </code>
@@ -159,7 +159,7 @@ async def evaluate_js(page: Page, js_code: str):
     <h3>Фреймы</h3>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def get_frame_by_name(page: Page, name: str):
     return await page.frame(name=name)  # Получить фрейм по имени.
         </code>
@@ -167,7 +167,7 @@ async def get_frame_by_name(page: Page, name: str):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def get_frame_by_index(page: Page, index: int):
     return await page.frame(index=index)  # Получить фрейм по индексу.
         </code>
@@ -175,7 +175,7 @@ async def get_frame_by_index(page: Page, index: int):
     </pre>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def evaluate_js_in_frame(frame, js_code: str):
     await frame.evaluate(js_code)  # Выполнить JavaScript-код в контексте фрейма.
         </code>
