@@ -48,3 +48,23 @@ h2, h3 {
 .code-container code {
     white-space: pre-wrap; /* Сохраняем переносы строк */
 }
+
+.tooltip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.code-container.tooltip-visible .tooltip {
+    opacity: 1;
+}
