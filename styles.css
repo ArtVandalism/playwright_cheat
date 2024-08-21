@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+    
 /* Общие стили для страницы */
 html, body {
     font-family: Andale Mono, monospace;
@@ -14,38 +20,30 @@ html, body {
 
 }
 
+div + div {
+    margin-top: 1.5em;
+}    
+
 ::selection {
   background-color: #21323d;
   color: #ae2c11;
 } 
 
 .chat-container {
-    width: 100%;
     max-wight: 1280px;
-    border-radius: 10px;
     background-color: #131312;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow-y: scroll;
-    padding-right: 17px; /* Ширина полосы прокрутки */
+    padding: 2em;
+    display: grid;
 }
 
  /*Стили для сообщений чата */
 .chat-message {
-    box-sizing: border-box;
     word-wrap: break-word;
-    width: 100%;
-    margin-bottom: 10px;
-    box-pack: justify;
-    box-align: stretch;
-    align-self: stretch;
-    width: 100%;
-    padding-right: 17px; /* Ширина полосы прокрутки */
+    margin-left: auto;
+    margin-right: auto;
+    max-wight: 450px;
+    max-height: 350px;
+    overflow-y: scroll;
 }
 
 .chat-message p {
