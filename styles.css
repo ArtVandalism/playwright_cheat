@@ -5,16 +5,44 @@ body {
     padding: 20px;
 }
 
-h2, h3 {
-    color: #dcdcaa; /* Цвет для заголовков */
+h2 {
+    color: #dcdcaa;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.table-header, .table-row {
+    display: flex;
+    width: 100%;
+}
+
+.table-header-item, .table-cell {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #333;
+    box-sizing: border-box;
+}
+
+.table-header-item {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+}
+
+.table-cell {
+    background-color: #2d2d2d;
 }
 
 .code-container {
     position: relative;
     background-color: #2d2d2d;
+    border: 1px solid #333;
     border-radius: 5px;
     padding: 10px;
-    margin-bottom: 10px;
     overflow: auto;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer; /* Показываем, что код можно кликнуть */
