@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playwright Code Snippets</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -13,7 +14,7 @@
     <h3>Навигация</h3>
 
     <pre class="code-container">
-        <code>
+        <code class="language-python">
 async def navigate_to_url(page: Page, url: str):
     await page.goto(url)  # Переход по указанному URL.
         </code>
@@ -181,6 +182,8 @@ async def evaluate_js_in_frame(frame, js_code: str):
         <button class="copy-button" aria-label="Copy code">&#128203;</button>
     </pre>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
