@@ -31,6 +31,8 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow-y: scroll;
+    padding-right: 17px; /* Ширина полосы прокрутки */
 }
 
  /*Стили для сообщений чата */
@@ -42,6 +44,8 @@ html, body {
     box-pack: justify;
     box-align: stretch;
     align-self: stretch;
+    width: 100%;
+    padding-right: 17px; /* Ширина полосы прокрутки */
 }
 
 .chat-message p {
