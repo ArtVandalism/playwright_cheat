@@ -4,8 +4,6 @@ body {
     color: #d4d4d4;
     padding: 20px;
     display: flex;
-    width: 50%; /* Укажите ширину элемента */
-    margin: 0 auto; /* Горизонтальное центрирование */
     text-align: center;
 
 
@@ -26,8 +24,6 @@ h2, h3 {
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer; /* Показываем, что код можно кликнуть */
     display: flex;
-    width: 50%; /* Укажите ширину элемента */
-    margin: 0 auto; /* Горизонтальное центрирование */
 }
 
 .code-container:hover {
