@@ -4,14 +4,10 @@ body {
     color: #d4d4d4;
     padding: 20px;
     display: flex;
-    text-align: center;
-
-
 }
 
 h2, h3 {
     color: #dcdcaa; /* Цвет для заголовков */
-    text-align: center;
 }
 
 .code-container {
