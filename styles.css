@@ -7,6 +7,9 @@ body {
 
 h2, h3 {
     color: #dcdcaa; /* Цвет для заголовков */
+    text-transform: uppercase;
+    wight: 100%;
+
 }
 
 .code-container {
