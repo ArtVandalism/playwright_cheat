@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    Expect
+</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/codehilite.css">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+</head>
+<body>
+
+    <div class="page">
+        <header>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/" class="nav-link">Nav</a></li>
+            <li class="nav-item"><a href="/element1/" class="nav-link">Click</a></li>
+            <li class="nav-item"><a href="/element2/" class="nav-link">Expect</a></li>
+            <li class="nav-item"><a href="/keymouse/" class="nav-link">Key</a></li>
+            <li class="nav-item"><a href="/jsframe/" class="nav-link">JS Frame</a></li>
+          </ul>
+        </header>
+
+        <main class="container">
+            <div class="markdown-content" class="codehilite">
+    <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">select_option</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">Page</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">select_option</span><span class="p">(</span><span class="n">selector</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>  
+    <span class="c1"># Выбор опции в раскрывающемся списке по метке.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">wait_for_element</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">Page</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">wait_for_selector</span><span class="p">(</span><span class="n">selector</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">state</span><span class="p">)</span>  
+    <span class="c1"># Ожидание появления или видимости элемента.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">check_element_visibility</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">Page</span><span class="p">,</span> <span class="n">selector</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">locator</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span><span class="o">.</span><span class="n">is_visible</span><span class="p">()</span>  
+    <span class="c1"># Проверка, существует ли элемент и виден ли он.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">check_page_title</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">Page</span><span class="p">,</span> <span class="n">expected_title</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">==</span> <span class="n">expected_title</span>  
+    <span class="c1"># Проверка заголовка страницы.</span>
+</code></pre></div>
+</div>
+        </main>
+    </div>
+
+    <script src="/static/js/codehilite.js"></script>
+</body>
+</html>

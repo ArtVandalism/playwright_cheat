@@ -1,0 +1,111 @@
+@font-face {
+font-family: Monocraft;
+src: url("../fonts/Monocraft.otf") format("opentype");
+}
+
+* {font-family:Monocraft; }
+
+body {
+    background-color: #1e1e1e;
+    font-size: 18px;
+    color: #d4d4d4;
+    padding: 20px;
+    user-select: none;
+}
+
+h1,h2, h3 {
+    color: #ffffff; /* Цвет для заголовков */
+    text-transform: uppercase;
+    wight: 100%;
+
+}
+
+.codehilite {
+    background-color: #252525;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis
+    cursor: pointer; /* Показываем, что код можно кликнуть */
+    user-select: none;
+    transition: transform 0.3s ease;
+}
+
+
+.codehilite:hover {
+    background-color: #333333;
+        cursor: pointer; /* Показываем, что код можно кликнуть */
+        transition: transform 0.3s ease;
+}
+
+.codehilite.active {
+    background-color: #333333;
+    transform: scale(1.05);
+}
+
+.nav {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-color: #ffffff;
+    --bs-nav-link-hover-color: var(--bs-link-hover-color);
+    --bs-nav-link-disabled-color: var(--bs-secondary-color);
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    color: var(--bs-nav-link-color);
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.nav-link:hover {
+    color: var(--bs-nav-link-hover-color);
+    text-decoration: none;
+    background-color: #333333;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.nav-link.active {
+            background-color: #282c34; /* Цвет фона для активной страницы */
+            font-weight: bold; /* Дополнительное выделение, если нужно */
+        }
+
+@media (max-width: 425px) {
+    body {
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        user-select: none;
+    }
+
+    .codehilite {
+        font-size: 12px;
+        padding: 3px; /* Уменьшаем отступы */
+        cursor: pointer;
+        user-select: none;
+        transition: transform 0.3s ease;
+    }
+}

@@ -1,192 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playwright Code Snippets</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <title>
+    Nav
+</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/codehilite.css">
+    <link rel="stylesheet" href="/static/css/normalize.css">
 </head>
 <body>
 
-    <h2 style="text-align: center;">Playwright Code Snippets</h2>
-    
-    <h3 style="text-align: center;">Навигация</h3>
+    <div class="page">
+        <header>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/" class="nav-link">Nav</a></li>
+            <li class="nav-item"><a href="/element1/" class="nav-link">Click</a></li>
+            <li class="nav-item"><a href="/element2/" class="nav-link">Expect</a></li>
+            <li class="nav-item"><a href="/keymouse/" class="nav-link">Key</a></li>
+            <li class="nav-item"><a href="/jsframe/" class="nav-link">JS Frame</a></li>
+          </ul>
+        </header>
 
-    <div class="code-container">
-        <pre>
-        <code class="language-python">
-async def navigate_to_url(page: Page, url: str):
-    await page.goto(url)  # Переход по указанному URL.
-        </code>
-        </pre>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    <div class="tooltip">Copied!</div>
+        <main class="container">
+            <div class="markdown-content" class="codehilite">
+    <div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">navigate_to_url</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">Page</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  
+    <span class="c1"># Переход по указанному URL.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">reload_page</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">Page</span><span class="p">):</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">reload</span><span class="p">()</span>  
+    <span class="c1"># Перезагрузка текущей страницы.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">go_back</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">Page</span><span class="p">):</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">go_back</span><span class="p">()</span>  
+    <span class="c1"># Переход на предыдущую страницу в истории.</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">go_forward</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">Page</span><span class="p">):</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">go_forward</span><span class="p">()</span>  
+    <span class="c1"># Переход на следующую страницу в истории.</span>
+</code></pre></div>
+</div>
+        </main>
     </div>
 
-    <pre class="code-container">
-        <code class="language-python">
-async def reload_page(page: Page):
-    await page.reload()  # Перезагрузка текущей страницы.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def go_back(page: Page):
-    await page.go_back()  # Переход на предыдущую страницу в истории.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def go_forward(page: Page):
-    await page.go_forward()  # Переход на следующую страницу в истории.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <h3 style="text-align: center;">Работа с элементами</h3>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def click_element(page: Page, selector: str):
-    await page.click(selector)  # Клик по элементу, определённому селектором.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def type_text(page: Page, selector: str, text: str):
-    await page.type(selector, text)  # Ввод текста в поле ввода.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def press_key(page: Page, selector: str, key: str):
-    await page.press(selector, key)  # Нажатие клавиши в поле ввода.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def get_text_content(page: Page, selector: str) -> str:
-    return await page.text_content(selector)  # Получение текстового содержимого элемента.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def select_option(page: Page, selector: str, label: str):
-    await page.select_option(selector, label=label)  # Выбор опции в раскрывающемся списке по метке.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def wait_for_element(page: Page, selector: str, state: str):
-    await page.wait_for_selector(selector, state=state)  # Ожидание появления или видимости элемента.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def check_element_visibility(page: Page, selector: str):
-    assert await page.locator(selector).is_visible()  # Проверка, существует ли элемент и виден ли он.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def check_page_title(page: Page, expected_title: str):
-    assert await page.title() == expected_title  # Проверка заголовка страницы.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <h3 style="text-align: center;">Клавиатура и мышь</h3>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def type_text_in_input(page: Page, selector: str, text: str):
-    await page.type(selector, text)  # Ввести текст в поле ввода.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def press_key_on_keyboard(page: Page, key: str):
-    await page.keyboard.press(key)  # Нажать клавишу на клавиатуре.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def release_key_on_keyboard(page: Page, key: str):
-    await page.keyboard.release(key)  # Отпустить клавишу на клавиатуре.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def move_mouse_and_click(page: Page, x: int, y: int):
-    await page.mouse.move(x, y)
-    await page.mouse.click()  # Передвинуть мышь в указанную позицию и кликнуть.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <h3 style="text-align: center;">Выполнение (eval) Javascript-кода</h3>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def evaluate_js(page: Page, js_code: str):
-    return await page.evaluate(js_code)  # Выполнить JavaScript-код в контексте страницы.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <h3 style="text-align: center;">Фреймы</h3>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def get_frame_by_name(page: Page, name: str):
-    return await page.frame(name=name)  # Получить фрейм по имени.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def get_frame_by_index(page: Page, index: int):
-    return await page.frame(index=index)  # Получить фрейм по индексу.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def evaluate_js_in_frame(frame, js_code: str):
-    await frame.evaluate(js_code)  # Выполнить JavaScript-код в контексте фрейма.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-    <script src="script.js"></script>
+    <script src="/static/js/codehilite.js"></script>
 </body>
 </html>
