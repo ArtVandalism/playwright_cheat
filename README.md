@@ -1,4 +1,4 @@
-# playwright_cheat
+# playwright_flask
 
 https://artvandalism.github.io/playwright_cheat/
 
