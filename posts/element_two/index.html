@@ -1,0 +1,70 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expect</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/pygments.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav nav-pills">
+                
+                    <li class="nav-item"><a href="/posts/nav" class="nav-link">Navigation</a></li>
+                
+                    <li class="nav-item"><a href="/posts/element_one" class="nav-link">Click</a></li>
+                
+                    <li class="nav-item"><a href="/posts/element_two" class="nav-link">Expect</a></li>
+                
+                    <li class="nav-item"><a href="/posts/keymouse" class="nav-link">Key/mouse</a></li>
+                
+                    <li class="nav-item"><a href="/posts/jsframe" class="nav-link">JS/frame</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main class="code-container">
+        
+    <div class="markdown-content" class="codehilite">
+        <hr />
+<div class="codehilite"><pre><span></span><code>async def select_option(page: Page, selector: str, label: str):
+    await page.select_option(selector, label=label)  
+    # Выбор опции в раскрывающемся списке по метке.
+</code></pre></div>
+
+<hr />
+<div class="codehilite"><pre><span></span><code>async def wait_for_element(page: Page, selector: str, state: str):
+    await page.wait_for_selector(selector, state=state)  
+    # Ожидание появления или видимости элемента.
+</code></pre></div>
+
+<hr />
+<div class="codehilite"><pre><span></span><code>async def check_element_visibility(page: Page, selector: str):
+    assert await page.locator(selector).is_visible()  
+    # Проверка, существует ли элемент и виден ли он.
+</code></pre></div>
+
+<hr />
+<div class="codehilite"><pre><span></span><code>async def check_page_title(page: Page, expected_title: str):
+    assert await page.title() == expected_title  
+    # Проверка заголовка страницы.
+</code></pre></div>
+
+<hr />
+    </div>
+
+    </main>
+
+    <footer class="footer fixed-bottom">
+        <a href="https://t.me/n1z1code"  class="nav-link">© 2024 n1z1code</a>
+    </footer>
+    <script src="/static/js/codehilite.js"></script>
+</body>
+</html>

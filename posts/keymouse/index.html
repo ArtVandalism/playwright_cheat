@@ -1,0 +1,71 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key/mouse</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/pygments.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav nav-pills">
+                
+                    <li class="nav-item"><a href="/posts/nav" class="nav-link">Navigation</a></li>
+                
+                    <li class="nav-item"><a href="/posts/element_one" class="nav-link">Click</a></li>
+                
+                    <li class="nav-item"><a href="/posts/element_two" class="nav-link">Expect</a></li>
+                
+                    <li class="nav-item"><a href="/posts/keymouse" class="nav-link">Key/mouse</a></li>
+                
+                    <li class="nav-item"><a href="/posts/jsframe" class="nav-link">JS/frame</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main class="code-container">
+        
+    <div class="markdown-content" class="codehilite">
+        <hr />
+<div class="codehilite"><pre><span></span><code><span class="nx">async</span><span class="w"> </span><span class="nx">def</span><span class="w"> </span><span class="nx">type_text_in_input</span><span class="p">(</span><span class="nx">page</span><span class="p">:</span><span class="w"> </span><span class="nx">Page</span><span class="p">,</span><span class="w"> </span><span class="nx">selector</span><span class="p">:</span><span class="w"> </span><span class="nx">str</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="p">:</span><span class="w"> </span><span class="nx">str</span><span class="p">):</span>
+<span class="w">    </span><span class="nx">await</span><span class="w"> </span><span class="nx">page</span><span class="p">.</span><span class="k">type</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Ввести</span><span class="w"> </span><span class="nx">текст</span><span class="w"> </span><span class="nx">в</span><span class="w"> </span><span class="nx">поле</span><span class="w"> </span><span class="nx">ввода</span><span class="p">.</span>
+</code></pre></div>
+
+<hr />
+<div class="codehilite"><pre><span></span><code>async def press_key_on_keyboard(page: Page, key: str):
+    await page.keyboard.press(key)  
+    # Нажать клавишу на клавиатуре.
+</code></pre></div>
+
+<hr />
+<div class="codehilite"><pre><span></span><code>async def release_key_on_keyboard(page: Page, key: str):
+    await page.keyboard.release(key)  
+    # Отпустить клавишу на клавиатуре.
+</code></pre></div>
+
+<hr />
+<div class="codehilite"><pre><span></span><code>async def move_mouse_and_click(page: Page, x: int, y: int):
+    await page.mouse.move(x, y)
+    await page.mouse.click()  
+    # Передвинуть мышь в указанную позицию и кликнуть.
+</code></pre></div>
+
+<hr />
+    </div>
+
+    </main>
+
+    <footer class="footer fixed-bottom">
+        <a href="https://t.me/n1z1code"  class="nav-link">© 2024 n1z1code</a>
+    </footer>
+    <script src="/static/js/codehilite.js"></script>
+</body>
+</html>
