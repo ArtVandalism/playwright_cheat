@@ -1,192 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playwright Code Snippets</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seamless Navigation</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="static/css/prism.css" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: Monocraft;
+      src: url("static/fonts/Monocraft.otf") format("opentype");
+    }
+
+    * {
+      font-family: 'Monocraft';
+    }
+
+    html, body {
+    height: 100%;
+    margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+    }
+
+    section {
+      padding: 1em;
+      padding-top: 2em;
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    section:target {
+      display: block;
+    }
+
+    #home {
+      display: block;
+    }
+
+    .footer {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .fixed-bottom {
+      @apply fixed left-0 right-0 bottom-0 z-10;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-blue-900 text-white flex flex-col">
 
-    <h2 style="text-align: center;">Playwright Code Snippets</h2>
+  <header class="bg-black-700 text-center py-4 fixed w-full top-0 z-20">
+    <nav>
+      <a href="#" class="text-white hover:text-gray-400 mx-2">Nav</a>
+      <a href="#element_one" class="text-white hover:text-gray-400 mx-2">Click</a>
+      <a href="#element_two" class="text-white hover:text-gray-400 mx-2">Expect</a>
+      <a href="#keymouse" class="text-white hover:text-gray-400 mx-2">Key</a>
+	  <a href="#jsframe" class="text-white hover:text-gray-400 mx-2">JS Frame</a>
+    </nav>
+  </header>
+
+  <main class="flex-grow">
+    <section id="home" class="pt-16 p-8 text-white bg-gray-900">
+      
+      <div id="markdown-section1"></div>
+    </section>
+    <section id="element_one" class="pt-16 p-8 text-white bg-gray-900">
+      
+      <div id="markdown-section2" class="prose prose-lg max-w-none text-white"></div>
+    </section>
+    <section id="element_two" class="pt-16 p-8 text-white bg-gray-900">
+      
+      <div id="markdown-section3" class="prose prose-lg max-w-none text-white"></div>
+    </section>
+    <section id="keymouse" class="pt-16 p-8 text-white bg-gray-900">
+      
+      <div id="markdown-section4" class="prose prose-lg max-w-none text-white"></div>
+    </section>
+    <section id="jsframe" class="pt-16 p-8 text-white bg-gray-900">
+      
+      <div id="markdown-section5" class="prose prose-lg max-w-none text-white"></div>
+    </section>
+  </main>
+
+  <footer class="footer fixed-bottom bg-gray-800 text-white py-2 text-center">
+    <a href="https://t.me/n1z1code">&copy; 2024 n1z1code</a>
+  </footer>
+
+	<script src="static/js/prism.js"></script>
+	<script src="static/js/marked.min.js"></script>
+	<script>
+
+function copyToClipboard(codeBlock) {
+      const text = codeBlock.textContent || codeBlock.innerText;
+      navigator.clipboard.writeText(text).catch(err => {
+        console.error('Error copying text: ', err);
+      });
+    }
+
     
-    <h3 style="text-align: center;">Навигация</h3>
+    async function loadMarkdownContent(sectionId, filePath) {
+      const response = await fetch(filePath);
+      const markdown = await response.text();
+      const htmlContent = marked.parse(markdown);
 
-    <div class="code-container">
-        <pre>
-        <code class="language-python">
-async def navigate_to_url(page: Page, url: str):
-    await page.goto(url)  # Переход по указанному URL.
-        </code>
-        </pre>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    <div class="tooltip">Copied!</div>
-    </div>
+      
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = htmlContent;
+      tempDiv.querySelectorAll('pre code').forEach((block) => {
+        block.classList.add('language-python'); 
 
-    <pre class="code-container">
-        <code class="language-python">
-async def reload_page(page: Page):
-    await page.reload()  # Перезагрузка текущей страницы.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
+        
+        const copyBtn = document.createElement('button');
+        copyBtn.textContent = 'Copy';
+        copyBtn.classList.add('copy-btn');
+        copyBtn.addEventListener('click', () => copyToClipboard(block));
+        
+        
+        const pre = block.closest('pre');
+        if (pre) {
+          pre.style.position = 'relative'; 
+          pre.appendChild(copyBtn);
+        }
+      });
 
-    <pre class="code-container">
-        <code class="language-python">
-async def go_back(page: Page):
-    await page.go_back()  # Переход на предыдущую страницу в истории.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
+      
+      document.getElementById(sectionId).innerHTML = tempDiv.innerHTML;
 
-    <pre class="code-container">
-        <code class="language-python">
-async def go_forward(page: Page):
-    await page.go_forward()  # Переход на следующую страницу в истории.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
+      
+      Prism.highlightAll();
+    }
 
-    <h3 style="text-align: center;">Работа с элементами</h3>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def click_element(page: Page, selector: str):
-    await page.click(selector)  # Клик по элементу, определённому селектором.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def type_text(page: Page, selector: str, text: str):
-    await page.type(selector, text)  # Ввод текста в поле ввода.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def press_key(page: Page, selector: str, key: str):
-    await page.press(selector, key)  # Нажатие клавиши в поле ввода.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def get_text_content(page: Page, selector: str) -> str:
-    return await page.text_content(selector)  # Получение текстового содержимого элемента.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def select_option(page: Page, selector: str, label: str):
-    await page.select_option(selector, label=label)  # Выбор опции в раскрывающемся списке по метке.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def wait_for_element(page: Page, selector: str, state: str):
-    await page.wait_for_selector(selector, state=state)  # Ожидание появления или видимости элемента.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def check_element_visibility(page: Page, selector: str):
-    assert await page.locator(selector).is_visible()  # Проверка, существует ли элемент и виден ли он.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def check_page_title(page: Page, expected_title: str):
-    assert await page.title() == expected_title  # Проверка заголовка страницы.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <h3 style="text-align: center;">Клавиатура и мышь</h3>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def type_text_in_input(page: Page, selector: str, text: str):
-    await page.type(selector, text)  # Ввести текст в поле ввода.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def press_key_on_keyboard(page: Page, key: str):
-    await page.keyboard.press(key)  # Нажать клавишу на клавиатуре.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def release_key_on_keyboard(page: Page, key: str):
-    await page.keyboard.release(key)  # Отпустить клавишу на клавиатуре.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def move_mouse_and_click(page: Page, x: int, y: int):
-    await page.mouse.move(x, y)
-    await page.mouse.click()  # Передвинуть мышь в указанную позицию и кликнуть.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <h3 style="text-align: center;">Выполнение (eval) Javascript-кода</h3>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def evaluate_js(page: Page, js_code: str):
-    return await page.evaluate(js_code)  # Выполнить JavaScript-код в контексте страницы.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <h3 style="text-align: center;">Фреймы</h3>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def get_frame_by_name(page: Page, name: str):
-    return await page.frame(name=name)  # Получить фрейм по имени.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def get_frame_by_index(page: Page, index: int):
-    return await page.frame(index=index)  # Получить фрейм по индексу.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <pre class="code-container">
-        <code class="language-python">
-async def evaluate_js_in_frame(frame, js_code: str):
-    await frame.evaluate(js_code)  # Выполнить JavaScript-код в контексте фрейма.
-        </code>
-        <button class="copy-button" aria-label="Copy code">&#128203;</button>
-    </pre>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-    <script src="script.js"></script>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      loadMarkdownContent('markdown-section1', 'section1.md');
+      loadMarkdownContent('markdown-section2', 'section2.md');
+      loadMarkdownContent('markdown-section3', 'section3.md');
+      loadMarkdownContent('markdown-section4', 'section4.md');
+      loadMarkdownContent('markdown-section5', 'section5.md');
+    });
+  </script>
 </body>
 </html>
