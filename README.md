@@ -3,3 +3,5 @@
 https://artvandalism.github.io/playwright_cheat/
 
 cheat code for async function on playwright
+
+https://playwright-cheat.vercel.app/
