@@ -1,30 +1,24 @@
----
-"Click"
----
 
----
-    async def click_element(page: Page, selector: str):
-        await page.click(selector)  
-        # Клик по элементу, определённому селектором.
+```python
+	# Кликнуть элемент
+	page.click('button')
+```
 
----
+```python
+	# Ввести текст в поле ввода
+	page.type('input[name="username"]', 'your_username')
+```
 
-    async def type_text(page: Page, selector: str, text: str):
-        await page.type(selector, text)  
-        # Ввод текста в поле ввода.
+```python
+	# Нажать клавишу Enter
+	page.press('input[name="password"]', 'Enter')
+```
 
----
+```python
+	# Получить текстовое содержимое элемента
+	text = page.text_content('h1')
+```
 
-    async def press_key(page: Page, selector: str, key: str):
-        await page.press(selector, key)  
-        # Нажатие клавиши в поле ввода.
-
----
-
-    async def get_text_content(page: Page, selector: str) -> str:
-        return await page.text_content(selector)  
-        # Получение текстового содержимого элемента.
----
         
 
 

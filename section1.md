@@ -1,33 +1,23 @@
----
-Navigation
----
 
----
+```python
+	# Переход по URL
+	page.goto('https://google.com')
+```
 
-    async def navigate_to_url(page: Page, url: str):
-        await page.goto(url)  
-        # Переход по указанному URL.
+```python
+	# Перезагрузка страницы
+	page.reload()
+```
 
----
+```python
+	# Переход на предыдущую страницу в истории.
+	page.goBack()
+```
 
-    async def reload_page(page: Page):
-        await page.reload()  
-        # Перезагрузка текущей страницы.
-
----
-
-    async def go_back(page: Page):
-        await page.go_back()  
-     # Переход на предыдущую страницу в истории.
-
----
-
-    async def go_forward(page: Page):
-        await page.go_forward()  
-        # Переход на следующую страницу в истории.
-
----
-
+```python
+	# Переход на следующую страницу в истории.
+	page.goForward()
+```
 
 
  

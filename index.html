@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/static/playwright-logo.svg" type="image/svg+xml">
+  <link rel="icon" href="static/playwright-logo.svg" type="image/svg+xml">
   <title>PlayWright Cheat</title>
   <link href="static/css/tailwind.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/normalize.css">
   <link href="static/css/prism.css" rel="stylesheet" />
   <style>
     @font-face {
@@ -13,15 +14,12 @@
       src: url("static/fonts/Monocraft.otf") format("opentype");
     }
 
-    * {
-      font-family: 'Monocraft';
-    }
-
     html, body {
+    font-family: Monocraft;
     height: 100%;
     margin: 0;
 	  padding: 0;
-	  overflow: hidden;
+	  
     }
 
     section {
@@ -44,17 +42,38 @@
     .footer {
       padding: 1rem;
       text-align: center;
+      bottom: 0;
     }
 
-    .fixed-bottom {
-      @apply fixed left-0 right-0 bottom-0 z-10;
+    .flex-grow {
+      flex-grow: 1;
     }
+
+    .language-python {
+      background-color: #252525;
+      font-size: 18px;
+      width: 90hw;
+      border-radius: 10px;
+      padding: 5px;
+      margin-bottom: 5px;
+      transform: scale(0.9);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+
+    .language-python:hover {
+      transform: scale(0.95);
+    }
+    
   </style>
 </head>
-<body class="bg-blue-900 text-white flex flex-col">
+<body class="bg-gray-900 text-white flex flex-col">
 
-  <header class="bg-black-700 text-center py-4 fixed w-full top-0 z-20">
-    <nav>
+  <header id="header" class="bg-black-700 text-center py-4 fixed w-full top-0 z-20">
+    <nav class='link'>
       <a href="#" class="text-white hover:text-gray-400 mx-2">Nav</a>
       <a href="#element_one" class="text-white hover:text-gray-400 mx-2">Click</a>
       <a href="#element_two" class="text-white hover:text-gray-400 mx-2">Expect</a>
@@ -62,6 +81,8 @@
 	  <a href="#jsframe" class="text-white hover:text-gray-400 mx-2">JS Frame</a>
     </nav>
   </header>
+
+
 
   <main class="flex-grow">
     <section id="home" class="pt-16 p-8 text-white bg-gray-900">
@@ -86,62 +107,12 @@
     </section>
   </main>
 
-  <footer class="footer fixed-bottom bg-gray-800 text-white py-2 text-center">
+  <footer class="footer" class="text-center text-white hover:text-gray-400 mx-2 z-1000">
     <a href="https://t.me/n1z1code">&copy; 2024 n1z1code</a>
   </footer>
 
 	<script src="static/js/prism.js"></script>
 	<script src="static/js/marked.min.js"></script>
-	<script>
-
-function copyToClipboard(codeBlock) {
-      const text = codeBlock.textContent || codeBlock.innerText;
-      navigator.clipboard.writeText(text).catch(err => {
-        console.error('Error copying text: ', err);
-      });
-    }
-
-    
-    async function loadMarkdownContent(sectionId, filePath) {
-      const response = await fetch(filePath);
-      const markdown = await response.text();
-      const htmlContent = marked.parse(markdown);
-
-      
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = htmlContent;
-      tempDiv.querySelectorAll('pre code').forEach((block) => {
-        block.classList.add('language-python'); 
-
-        
-        const copyBtn = document.createElement('button');
-        copyBtn.textContent = 'Copy';
-        copyBtn.classList.add('copy-btn');
-        copyBtn.addEventListener('click', () => copyToClipboard(block));
-        
-        
-        const pre = block.closest('pre');
-        if (pre) {
-          pre.style.position = 'relative'; 
-          pre.appendChild(copyBtn);
-        }
-      });
-
-      
-      document.getElementById(sectionId).innerHTML = tempDiv.innerHTML;
-
-      
-      Prism.highlightAll();
-    }
-
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      loadMarkdownContent('markdown-section1', 'section1.md');
-      loadMarkdownContent('markdown-section2', 'section2.md');
-      loadMarkdownContent('markdown-section3', 'section3.md');
-      loadMarkdownContent('markdown-section4', 'section4.md');
-      loadMarkdownContent('markdown-section5', 'section5.md');
-    });
-  </script>
+    <script src="static/js/copy.js"></script>
 </body>
 </html>
